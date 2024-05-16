@@ -1,0 +1,23 @@
+import * as React from "react";
+import { FaLongArrowAltRight } from "react-icons/fa";
+import CardHomeShortcut from "../Card/CardShortCutHome";
+
+export interface IListStoryShortcutProps {}
+
+export default function ListStoryShortcut(props: IListStoryShortcutProps) {
+  return (
+    <div className=" w-full mt-5 px-2 grid grid-cols-2 gap-x-3 gap-y-2 bg-transparent">
+      <nav className="flex p-2 items-center bg-white rounded-md justify-between col-span-2">
+        {" "}
+        <h3 className="font-semibold text-2xl">Top Ngọc Phiếu (tuần)</h3>
+        <button className="flex  items-center gap-1 text-[#128c7e] text-sm">
+          Tất cả <FaLongArrowAltRight />
+        </button>
+      </nav>
+      <CardHomeShortcut />
+      <CardHomeShortcut />
+      <CardHomeShortcut />
+      <CardHomeShortcut />
+    </div>
+  );
+}

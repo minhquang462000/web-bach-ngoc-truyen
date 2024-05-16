@@ -1,16 +1,28 @@
-import * as React from "react";
+"use client";
 import { GoQuestion } from "react-icons/go";
 import { SlCloudUpload } from "react-icons/sl";
 import { VscThreeBars } from "react-icons/vsc";
-
+import ListHomeCategory from "../List/ListHomeCategory";
+import { useState } from "react";
 export interface IHeaderSelectProps {}
 
 export default function HeaderSelect(props: IHeaderSelectProps) {
+  const [openListCategory, setOpenListCategory] = useState<boolean>(false);
   return (
-    <section className=" font-medium bg-[#343a40] text-xs lg:text-sm text-white">
+    <section className="relative font-medium bg-[#343a40] text-xs lg:text-sm text-white">
+      <div
+        className={`absolute -top-14 right-0 z-50 shadow-md   ${
+          !openListCategory && "hidden"
+        }`}
+      >
+        <ListHomeCategory setOpenListCategory={setOpenListCategory} />
+        <div className="min-h-screen bg-[#2222225e] ">
+        </div>
+      </div>
       <div className="max-w-[1140px]  lg:flex justify-between mx-auto">
         <ul className="flex justify-between   items-center">
           <li
+            onClick={() => setOpenListCategory(true)}
             className={`flex items-center cursor-pointer hover:bg-[#141414] p-3 px-4 gap-1`}
           >
             <VscThreeBars />

@@ -1,25 +1,28 @@
 import HomeSlide from "@/components/Slides/HomeSide";
 import HeaderSelect from "@/components/headers/HeaderSelect";
 import { MainLayout } from "@/layouts";
-import Image from "next/image";
 import imgGooglePlay from "@/public/images/ch-play.7a2de44b.jpg";
 import imgAppStore from "@/public/images/app-store.b67ff810.jpg";
-import ListCategory from "@/components/List/ListCategory";
 import homeBackground from "@/public/images/bg-home.jpg";
+import ListShortcut from "@/components/List/ListShortcut";
+import ListStoryShortcut from "@/components/List/ListStoryShortcyut";
+import ListRankingStory from "@/components/List/ListNewestStory";
+import ListNewestStory from "@/components/List/ListNewestStory";
+import ListNewestChapter from "@/components/List/ListChapterNewest";
 
 export default function Home() {
   return (
     <MainLayout>
       <HeaderSelect />
-      <main className="w-screen relative min-h-screen">
+      <main className="w-screen relative ">
         <img
-          className="w-full hidden lg:block h-full object-cover object-center absolute top-0 -z-10"
+          className="w-full  h-full object-cover object-center absolute top-0 -z-10"
           src={homeBackground.src}
           alt=""
         />
         <div className="max-w-[1140px] lg:py-5  overflow-hidden  mx-auto grid grid-cols-1 lg:grid-cols-4 gap-5">
           <div className="hidden lg:block">
-            <ListCategory />
+            <ListShortcut />
           </div>
           <div className="lg:col-span-2 h-full ">
             <HomeSlide />
@@ -45,6 +48,19 @@ export default function Home() {
               </span>
             </nav>
           </div>
+        </div>
+        <div className="max-w-[1140px] mx-auto grid lg:grid-cols-4">
+          <div className=""></div>
+          <div className="lg:col-span-3">
+            <ListStoryShortcut />
+          </div>
+        </div>
+        <div className="lg:hidden p-3 mt-5">
+          <ListShortcut />
+        </div>
+        <div className="p-3 w-full">
+          <ListNewestStory />
+          <ListNewestChapter />
         </div>
       </main>
     </MainLayout>
