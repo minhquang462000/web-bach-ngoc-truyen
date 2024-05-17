@@ -19,6 +19,12 @@ export default function ListNewestChapter(props: IListNewestChapterProps) {
       <CardNewestChapter />
       <CardNewestChapter />
       <CardNewestChapter />
+      <CardNewestChapter />
+      <CardNewestChapter />
+      <CardNewestChapter />
+      <CardNewestChapter />
+      <CardNewestChapter />
+      <CardNewestChapter />
     </div>
   );
 }

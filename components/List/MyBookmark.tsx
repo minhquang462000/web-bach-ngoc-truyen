@@ -24,8 +24,8 @@ export default function MyBookmark(props: IMyBookmarkProps) {
   };
   return (
     <div
-      className={` absolute  w-screen px-5  lg:max-w-[50%] z-20 lg:px-4 lg:shadow-lg lg:shadow-gray-500 bg-white min-h-screen text-center   transition-all duration-700 top-0 ${
-        !openPopupMyStory ? " right-[-120%]   " : "lg:right-0 -right-3"
+      className={` absolute  w-screen px-5 md:max-w-[80%]  lg:max-w-[50%] z-20 lg:px-4 lg:shadow-lg lg:shadow-gray-500 bg-white min-h-screen text-center   transition-all duration-700 top-0 ${
+        !openPopupMyStory ? " right-[-120%] md:right-[-140%]  " : " -right-3  md:-right-[9%]"
       }`}
     >
       <h3 className="my-4 lg:text-start text-sm relative font-bold">

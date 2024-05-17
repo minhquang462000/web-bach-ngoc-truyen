@@ -10,23 +10,23 @@ export interface IListCategoryProps {}
 
 export default function ListShortcut(props: IListCategoryProps) {
   return (
-    <ul className="w-full  shadow-md gap-y-4 shadow-gray-400 rounded-sm h-full border p-2 grid grid-cols-3">
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+    <ul className="w-full  shadow-md lg:gap-y-4 shadow-gray-400 rounded-sm h-full border  gap-x-8 p-3 grid grid-cols-3">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgTacDaiThan} alt={"imgLogo"} />
       </li>
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgTopNgocPhieu} alt={"imgLogo"} />
       </li>
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgThinhHanhTuan} alt={"imgLogo"} />
       </li>
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgDocQuyen} alt={"imgLogo"} />
       </li>
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgTruyenHot} alt={"imgLogo"} />
       </li>
-      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600 p-2 lg:p-1  rounded-xl">
+      <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgYeuThich} alt={"imgLogo"} />
       </li>
     </ul>

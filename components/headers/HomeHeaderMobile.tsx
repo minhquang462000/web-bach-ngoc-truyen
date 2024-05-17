@@ -49,7 +49,7 @@ export default function HomeHeaderMobile(props: IHomeHeaderProps) {
   }, [openPopupAuth, wrapperRefAuth, openPopupFunction, wrapperRefFunction]);
 
   return (
-    <section className="flex lg:hidden relative justify-between text-xs items-center">
+    <section className="flex lg:hidden relative md:max-w-[700px] m-auto justify-between text-xs items-center">
       <Link className="cursor-pointer" href="/">
         {" "}
         <Image src={mainLogo} alt="logo" width={160} />

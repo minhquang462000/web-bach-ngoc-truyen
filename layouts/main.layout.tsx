@@ -5,7 +5,7 @@ import * as React from "react";
 
 export function MainLayout({ children }: Readonly<ILayout>) {
   return (
-    <section className="m-auto">
+    <section className="m-auto w-screen bg-transparent">
       <HomeHeader />
       {children}
       <FooterMain />

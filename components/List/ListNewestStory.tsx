@@ -18,6 +18,12 @@ export default function ListNewestStory(props: IListNewestStoryProps) {
       <CardNewest />
       <CardNewest />
       <CardNewest />
+      <CardNewest />
+      <CardNewest />
+      <CardNewest />
+      <CardNewest />
+      <CardNewest />
+      <CardNewest />
     </div>
   );
 }

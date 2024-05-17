@@ -15,7 +15,7 @@ export default function CardNewestChapter(props: ICardNewestChapterProps) {
           <p className="text-[#0000ff]">[Dịch]</p>
           <p className="hover:text-[#128c7e]">Quỷ Đạo Chi Chủ</p>
         </span>
-        <p className="font-semibold text-[#999999] w-full truncate">
+        <p className="font-semibold text-[#999999] hover:text-[#007bff] overflow-hidden w-full truncate">
          Chương 460: Kim Thần Của Thiên Địa Thần Công
         </p>
       </div>
