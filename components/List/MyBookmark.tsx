@@ -24,9 +24,9 @@ export default function MyBookmark(props: IMyBookmarkProps) {
   };
   return (
     <div
-      className={` absolute  w-screen px-5 md:max-w-[80%]  lg:max-w-[50%] z-20 lg:px-4 lg:shadow-lg lg:shadow-gray-500 bg-white min-h-screen text-center   transition-all duration-700 top-0 ${
-        !openPopupMyStory ? " right-[-120%] md:right-[-140%]  " : " -right-3  md:-right-[9%]"
-      }`}
+      className={` absolute w-screen
+        px-5 md:max-w-[80%]   -right-3 lg:max-w-[50%] z-20 lg:px-4 lg:shadow-lg lg:shadow-gray-500 bg-white min-h-screen text-center top-0
+       ${!openPopupMyStory&& "hidden"}`}
     >
       <h3 className="my-4 lg:text-start text-sm relative font-bold">
         Tủ truyện{" "}
@@ -36,28 +36,25 @@ export default function MyBookmark(props: IMyBookmarkProps) {
           className="absolute -top-2 text-gray-400 hover:text-gray-500 right-0 cursor-pointer"
         />
       </h3>
-      <ul className="flex mb-5  bg-[#f1f5f9] rounded-md text-[#68748b] gap-2 p-2   font-semibold justify-between">
+      <ul className="flex mb-5  bg-[#f1f5f9] rounded-md text-[#68748b] gap-2 p-2 w-full   font-semibold justify-between">
         <li
           onClick={() => setTabRender("truyen-da-doc")}
-          className={`px-3 py-[6px] cursor-pointer ${
-            tabRender === "truyen-da-doc" && "bg-white text-[#128c7e]"
-          }`}
+          className={`px-3 py-[6px] md:w-1/3 cursor-pointer ${tabRender === "truyen-da-doc" && "bg-white text-[#128c7e]"
+            }`}
         >
           Truyện đã đọc
         </li>
         <li
           onClick={() => setTabRender("truyen-da-luu")}
-          className={`px-3 py-[6px] cursor-pointer  ${
-            tabRender === "truyen-da-luu" && "bg-white text-[#128c7e]"
-          }`}
+          className={`px-3 md:w-1/3 py-[6px] cursor-pointer  ${tabRender === "truyen-da-luu" && "bg-white text-[#128c7e]"
+            }`}
         >
           Truyện đã lưu
         </li>
         <li
           onClick={() => setTabRender("truyen-da-mo")}
-          className={`px-3 py-[6px] cursor-pointer  ${
-            tabRender === "truyen-da-mo" && "bg-white text-[#128c7e]"
-          }`}
+          className={`px-3 md:w-1/3 py-[6px] cursor-pointer  ${tabRender === "truyen-da-mo" && "bg-white text-[#128c7e]"
+            }`}
         >
           Truyện đã mở
         </li>

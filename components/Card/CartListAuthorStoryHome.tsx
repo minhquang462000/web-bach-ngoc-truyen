@@ -1,8 +1,8 @@
 import * as React from "react";
 
-export interface ICardAuthorStoryProps {}
+export interface ICardAuthorStoryProps { }
 
-export default function CardAuthorStory(props: ICardAuthorStoryProps) {
+export default function CardListAuthorStoryHome(props: ICardAuthorStoryProps) {
   return (
     <div className="flex hover:shadow-lg hover:shadow-gray-600 group  p-2 text-sm gap-3   rounded-md   bg-white ">
       <div className="w-[75px] h-[110px] cursor-pointer rounded-md overflow-hidden">
@@ -15,11 +15,11 @@ export default function CardAuthorStory(props: ICardAuthorStoryProps) {
       <div className="flex flex-col gap-2 ">
         <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>
         <p className="hover:text-[#007bff] font-medium">Liêm Phong việt Sử</p>
-        <ul className="flex items-center text-xs  gap-1 flex-wrap ">
-          <li className="p-[2px] px-1 border rounded-full border-[#22C55E]">
+        <ul className="flex items-center text-xs h-[25px] max-w-[150px] overflow-hidden  gap-1 flex-wrap ">
+          <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
             Lịch Sử
           </li>
-          <li className="p-[2px] px-1 border rounded-full border-[#22C55E]">
+          <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
             Lịch Sử
           </li>
         </ul>

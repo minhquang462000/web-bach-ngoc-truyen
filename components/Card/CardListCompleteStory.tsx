@@ -1,13 +1,14 @@
+'use client'
 import { BookCover } from "book-cover-3d";
 import * as React from "react";
 
-export interface ICardCompleteStoryProps {}
+export interface ICardCompleteStoryProps { }
 
-export default function CardCompleteStory(props: ICardCompleteStoryProps) {
+export default function CardListCompleteStory(props: ICardCompleteStoryProps) {
   return (
     <div
       className="flex relative gap-4 
-     transition-all p-2 border-t border-dotted border-gray-500 text-black text-sm duration-500 
+     transition-all p-2 px-4 border-t border-dotted border-gray-500 text-black text-sm duration-500 
      hover:shadow-lg hover:shadow-gray-600   rounded-md  overflow-hidden bg-white"
     >
       <BookCover
@@ -17,6 +18,7 @@ export default function CardCompleteStory(props: ICardCompleteStoryProps) {
         width={80}
         height={120}
         radius={5}
+        shadowColor="none"
       >
         <div className="relative   hover:overflow-hidden     cursor-pointer ">
           <div className="relative hover:shadow-md  hover:shadow-gray-600  overflow-hidden">
@@ -48,9 +50,9 @@ export default function CardCompleteStory(props: ICardCompleteStoryProps) {
         <div className="mt-2 flex gap-1">
           <div className="mr-1 h-8 w-8 ">
             <svg
-              stroke="currentColor"
+
               fill="currentColor"
-              stroke-width="0"
+              strokeWidth="0"
               viewBox="0 0 512 512"
               height="12"
               width="12"

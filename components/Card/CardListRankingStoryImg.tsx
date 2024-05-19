@@ -2,7 +2,7 @@ import * as React from "react";
 import { BookCover } from "book-cover-3d";
 export interface ICardRankingStoryImgProps {}
 
-export default function CardRankingStoryImg(props: ICardRankingStoryImgProps) {
+export default function CardListRankingStoryImg(props: ICardRankingStoryImgProps) {
   return (
     <div className=" flex justify-between text-xs p-3 border-t-[1px] border-gray-400">
       <div className="flex gap-3">

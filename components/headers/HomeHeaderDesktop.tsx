@@ -28,7 +28,7 @@ export default function HomeHeaderDesktop(props: IHomeHeaderDesktopProps) {
     };
   }, [wrapperRefMyStory, openPopupMyStory]);
   return (
-    <section className="max-w-[1140px]  h-full  hidden text-xs lg:block m-auto">
+    <section className="lg:max-w-[1140px] md:max-w-[705px] h-full w-screen overflow-hidden hidden text-xs  md:block m-auto">
       <div className="flex items-center  justify-between">
         <Link className="cursor-pointer" href="/">
           {" "}
@@ -37,7 +37,7 @@ export default function HomeHeaderDesktop(props: IHomeHeaderDesktopProps) {
         <SearchHeader />
         <ul className="flex gap-1 font-medium items-center ">
           <div
-            className={`w-screen left-0 min-h-screen opacity-45 absolute z-10 bg-[#d0d0d0]  ${
+            className={`w-screen left-0 min-h-screen  absolute z-10 bg-[#e4e4e4c5]  ${
               !openPopupMyStory ? "hidden  " : "block"
             } top-0`}
           ></div>
@@ -57,7 +57,7 @@ export default function HomeHeaderDesktop(props: IHomeHeaderDesktopProps) {
           <li>
             {" "}
             <Link
-              href={"/login"}
+              href={"/dang-nhap"}
               className="flex text-[#128c7e]  cursor-pointer p-[10px] px-4    justify-center items-center gap-2"
             >
               <CiLogin /> Đăng nhập
@@ -66,7 +66,7 @@ export default function HomeHeaderDesktop(props: IHomeHeaderDesktopProps) {
           <li>
             {" "}
             <Link
-              href={"/register"}
+              href={"/dang-ky"}
               className="flex bg-[#128c7e]  cursor-pointer text-white rounded-full p-[10px] px-4 justify-center items-center gap-2"
             >
               <FiUserPlus /> Đăng ký

@@ -7,7 +7,7 @@ export interface IFooterMainProps {
 
 export default function FooterMain (props: IFooterMainProps) {
   return (
-    <footer className='bg-white flex justify-center flex-col p-4  items-center gap-2 '>
+    <footer className='bg-white  shadow-[-2px_-10px_15px_0_rgba(68,64,64,.19)] flex justify-center flex-col p-4 pt-5  items-center gap-2 '>
       <div className='flex gap-3'>
         <Image src={imgAppStore} alt={"imgLogo"} width={100} height={50}/>
         <Image src={imgGooglePlay} alt={"imgLogo"} width={100} height={50}/>
@@ -19,3 +19,5 @@ export default function FooterMain (props: IFooterMainProps) {
     </footer>
   );
 }
+
+

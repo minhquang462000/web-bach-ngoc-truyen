@@ -10,7 +10,7 @@ export interface IListCategoryProps {}
 
 export default function ListShortcut(props: IListCategoryProps) {
   return (
-    <ul className="w-full  shadow-md lg:gap-y-4 shadow-gray-400 rounded-sm h-full border  gap-x-8 p-3 grid grid-cols-3">
+    <ul className="w-full md:grid-cols-6 lg:grid-cols-3  shadow-md lg:gap-y-4 shadow-gray-400 rounded-sm h-full lg:gap-x-2 border  gap-x-8 p-3 grid grid-cols-3">
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-4  rounded-xl">
         <Image src={imgTacDaiThan} alt={"imgLogo"} />
       </li>

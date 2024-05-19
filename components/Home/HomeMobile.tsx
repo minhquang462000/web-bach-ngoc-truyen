@@ -8,25 +8,22 @@ import ListRankingStory from "../List/ListRankingStory";
 import ListAuthorStory from "../List/ListAuthorStory";
 import ListCompleteStory from "../List/ListCompleteStory";
 
-export interface IHomeMobileProps {}
+export interface IHomeMobileProps { }
 
 export default function HomeMobile(props: IHomeMobileProps) {
   return (
-    <main className="w-screen lg:hidden mt-2  bg-transparent   flex flex-col gap-3 relative ">
-      <img
-        className="w-full  h-full object-cover object-center fixed top-0 -z-10"
-        src={homeBackground.src}
-        alt=""
-      />
-      <div className="w-screen md:max-w-[700px] bg-transparent mx-auto">
-        <HomeSlide />
+    <main className="w-screen lg:hidden ">
+      <div className=" flex flex-col gap-4 mt-4 ">
+        <div className="md:w-2/3 w-full m-auto ">
+          <HomeSlide />
+        </div>
         <ListStoryShortcut />
         <ListShortcut />
         <ListNewestStory />
         <ListNewestChapter />
-        <ListRankingStory title="Yêu Thích Tháng" />
-        <ListRankingStory title="Truyện Hot " />
-        <ListRankingStory title="Thịnh Hành Tuần" />
+        <ListRankingStory title="Yêu Thích Tháng" urlString="/yeu-thich-thang" />
+        <ListRankingStory title="Truyện Hot" urlString="/truyen-hot" />
+        <ListRankingStory title="Thịnh Hành Tuần" urlString="/thinh-hanh-tuan" />
         <ListAuthorStory />
         <ListCompleteStory />
       </div>

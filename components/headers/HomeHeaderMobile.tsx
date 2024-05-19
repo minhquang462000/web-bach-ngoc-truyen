@@ -49,7 +49,7 @@ export default function HomeHeaderMobile(props: IHomeHeaderProps) {
   }, [openPopupAuth, wrapperRefAuth, openPopupFunction, wrapperRefFunction]);
 
   return (
-    <section className="flex lg:hidden relative md:max-w-[700px] m-auto justify-between text-xs items-center">
+    <section className="flex md:hidden relative m-auto justify-between   text-xs items-center">
       <Link className="cursor-pointer" href="/">
         {" "}
         <Image src={mainLogo} alt="logo" width={160} />
@@ -78,13 +78,13 @@ export default function HomeHeaderMobile(props: IHomeHeaderProps) {
             }`}
           >
             <Link
-              href={"/login"}
+              href={"/dang-nhap"}
               className="flex border hover:bg-[#128c7e] hover:text-white border-[#128c7e] p-2 cursor-pointer rounded-md py-1 w-[100px] justify-center items-center gap-1"
             >
               <CiLogin /> Đăng nhập
             </Link>
             <Link
-              href={"/register"}
+              href={"/dang-ky"}
               className="flex border hover:bg-[#128c7e] hover:text-white border-[#128c7e] p-2 cursor-pointer rounded-md py-1 w-[100px] justify-center items-center gap-1"
             >
               <FiUserPlus /> Đăng ký
