@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  mode: "jit",
   theme: {
     extend: {
       backgroundImage: {
@@ -15,6 +16,10 @@ const config: Config = {
       },
       content: {
         link: 'url("/icons/link.svg")',
+      },
+      transitionProperty: {
+        "max-height": "max-height",
+        "max-width": "max-width",
       },
     },
   },

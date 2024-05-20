@@ -1,6 +1,6 @@
 import ButtonChangePage from '@/components/OptionComponent/ButtonChangePage';
 import ButtonShowCategory from '@/components/OptionComponent/ButtonShowCategory';
-import CardStoryAuthorPage from '@/components/Card/CardStoryAuthorPage';
+import CardStoryAuthorPage from '@/components/Card/CardAuthorStoryPage';
 import CardTypeStory from '@/components/Card/CardTypeStory';
 import { MainLayout } from '@/layouts';
 

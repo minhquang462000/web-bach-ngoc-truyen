@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export interface ICardAuthorStoryProps { }
+export interface ICardAuthorStoryProps {}
 
 export default function CardListAuthorStoryHome(props: ICardAuthorStoryProps) {
   return (

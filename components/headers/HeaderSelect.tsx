@@ -4,7 +4,7 @@ import { SlCloudUpload } from "react-icons/sl";
 import { VscThreeBars } from "react-icons/vsc";
 import ListHomeCategory from "../List/ListHomeCategory";
 import { useEffect, useRef, useState } from "react";
-export interface IHeaderSelectProps { }
+export interface IHeaderSelectProps {}
 
 export default function HeaderSelect(props: IHeaderSelectProps) {
   const [openListCategory, setOpenListCategory] = useState<boolean>(false);
@@ -26,11 +26,17 @@ export default function HeaderSelect(props: IHeaderSelectProps) {
   return (
     <section className="relative font-medium bg-[#343a40] w-screen text-xs md:text-sm text-white">
       <div
-        className={`fixed top-0 right-0 z-50 shadow-md transition-all duration-500  ${!openListCategory ? "top-[-100%]" : "top-0"
-          }`}
+        className={`fixed overflow-hidden top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${
+          !openListCategory ? "max-h-0" : "max-h-screen"
+        }`}
       >
-        <ListHomeCategory wrapperRefCategory={wrapperRefCategory} setOpenListCategory={setOpenListCategory} />
-        <div className={`min-h-screen bg-[#ffffffc3] ${openListCategory ? "block" : "hidden"}`}></div>
+        <ListHomeCategory
+          wrapperRefCategory={wrapperRefCategory}
+          setOpenListCategory={setOpenListCategory}
+        />
+        <div
+          className={` transitionProperty-[max-height] duration-300 bg-[#ffffffc3]`}
+        ></div>
       </div>
       <div className="lg:max-w-[1140px] w-full   md:flex justify-between m-auto">
         <ul className="flex justify-between  items-center">

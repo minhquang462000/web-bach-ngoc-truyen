@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface ICardStoryAuthorPageProps {
 }
 
-export default function CardStoryAuthorPage (props: ICardStoryAuthorPageProps) {
+export default function CardAuthorPageStory (props: ICardStoryAuthorPageProps) {
   return (
     <div className='group  w-full flex text-xs md:text-sm flex-col gap-2 lg:items-center rounded-md hover:shadow-md  shadow-gray-400 p-2 md:p-4 pb-5'>
       <div className="w-[180px] md:w-[180px] h-[240px] md:h-[250px]   m-auto border border-white relative cursor-pointer  rounded-lg  overflow-hidden">
