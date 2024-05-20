@@ -65,11 +65,11 @@ export default function CardDetailItemStory(props: ICardDetailItemStoryProps) {
             </div>
             <div className='flex md:w-1/4  flex-col bg-transparent gap-2'>
                 <div className='flex items-center h-max justify-center '>
-                    <FaStar size={20} color='ffc000' />
-                    <FaStar size={20} color='ffc000' />
-                    <FaStar size={20} color='ffc000' />
-                    <FaStar size={20} color='ffc000' />
-                    <FaStar size={20} color='ffc000' />
+                    <FaStar size={20} className='text-[#ffbc0b]'/>
+                    <FaStar size={20} className='text-[#ffbc0b]'/>
+                    <FaStar size={20} className='text-[#ffbc0b]'/>
+                    <FaStar size={20} className='text-[#ffbc0b]'/>
+                    <FaStar size={20} className='text-[#ffbc0b]'/>
                 </div>
                 <div className='flex items-center group border h-[60px] relative md:text-  rounded-lg overflow-hidden'>
                     <p className='text-[#12a62f] relative p-4 flex justify-center w-1/2 text-2xl font-sans font-bold'>

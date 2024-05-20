@@ -18,7 +18,7 @@ export default function CardSavedStory(props: ICardSavedStoryProps) {
       </div>
       <div className="w-[65%]  flex flex-col gap-1 text-start">
         <p className="line-clamp-1 cursor-pointer text-lg font-medium text-primary">
-          <span className="text-sourceTranslated">[Dịch]</span> Bá Chủ Mạt Thế
+          <span className="text-[#0000ff]  ">[Dịch]</span> Bá Chủ Mạt Thế
         </p>
         <p className="cursor-pointer text-sm text-gray-500 hover:text-blue-500">
           Thiên Địa Nhất Huấn{" "}

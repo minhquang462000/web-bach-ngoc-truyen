@@ -1,7 +1,7 @@
 import * as React from "react";
 import { IoIosClose } from "react-icons/io";
 
-export interface ICardStoryReadProps {}
+export interface ICardStoryReadProps { }
 
 export default function CardAlreadyStory(props: ICardStoryReadProps) {
   return (
@@ -18,7 +18,7 @@ export default function CardAlreadyStory(props: ICardStoryReadProps) {
       </div>
       <div className="w-[65%] gap-2 text-start">
         <p className="line-clamp-1 cursor-pointer text-lg font-medium text-primary">
-          <span className="text-sourceTranslated">[Dịch]</span> Bá Chủ Mạt Thế
+          <span className="text-[#0000ff]  ">[Dịch]</span> Bá Chủ Mạt Thế
         </p>
         <p className="cursor-pointer text-sm text-gray-500 hover:text-blue-500">
           Thiên Địa Nhất Huấn{" "}
@@ -31,7 +31,7 @@ export default function CardAlreadyStory(props: ICardStoryReadProps) {
           Đọc tiếp
         </button>
       </div>
-      <button className="absolute top-2 right-2 z-20"><IoIosClose size={30}/></button>
+      <button className="absolute top-2 right-2 z-20"><IoIosClose size={30} /></button>
     </div>
   );
 }

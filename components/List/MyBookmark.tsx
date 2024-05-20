@@ -44,7 +44,7 @@ export default function MyBookmark(props: IMyBookmarkProps) {
        ${
          !openPopupMyStory
            ? "max-w-0 "
-           : "max-w-full  px-5 lg:px-4  md:max-w-[70%] lg:max-w-[50%]"
+           : "max-w-full  px-5 lg:px-4  md:max-w-[600px] lg:max-w-[800px]"
        }`}
     >
       <h3 className="my-4 lg:text-start text-sm relative font-bold">

@@ -4,7 +4,7 @@ import { SlCloudUpload } from "react-icons/sl";
 import { VscThreeBars } from "react-icons/vsc";
 import ListHomeCategory from "../List/ListHomeCategory";
 import { useEffect, useRef, useState } from "react";
-export interface IHeaderSelectProps {}
+export interface IHeaderSelectProps { }
 
 export default function HeaderSelect(props: IHeaderSelectProps) {
   const [openListCategory, setOpenListCategory] = useState<boolean>(false);
@@ -26,16 +26,15 @@ export default function HeaderSelect(props: IHeaderSelectProps) {
   return (
     <section className="relative font-medium bg-[#343a40] w-screen text-xs md:text-sm text-white">
       <div
-        className={`fixed overflow-hidden top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${
-          !openListCategory ? "max-h-0" : "max-h-screen"
-        }`}
+        className={`fixed overflow-hidden top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${!openListCategory ? "max-h-0" : "max-h-screen"
+          }`}
       >
         <ListHomeCategory
           wrapperRefCategory={wrapperRefCategory}
           setOpenListCategory={setOpenListCategory}
         />
         <div
-          className={` transitionProperty-[max-height] duration-300 bg-[#ffffffc3]`}
+          className={` transitionProperty-[max-height] min-h-screen duration-300  bg-[#ffffffbf]`}
         ></div>
       </div>
       <div className="lg:max-w-[1140px] w-full   md:flex justify-between m-auto">

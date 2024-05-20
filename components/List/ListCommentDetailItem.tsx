@@ -17,6 +17,7 @@ export default function ListCommentDetailItem(props: IListCommentDetailItemProps
             placeholder='Bình luận của bạn ...'
             className='outline-none  h-[40px]    px-3   w-full bg-transparent' />
           <svg
+            className='cursor-pointer'
             color='#128c7e'
             stroke="currentColor"
             fill="currentColor"
