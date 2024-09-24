@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import CardHomeShortcut from "../Card/CardMainHome";
-
+import Link from "next/link";
 export interface IListStoryShortcutProps { }
 
 export default function ListStoryShortcut(props: IListStoryShortcutProps) {
@@ -14,18 +14,18 @@ export default function ListStoryShortcut(props: IListStoryShortcutProps) {
           Tất cả <FaLongArrowAltRight />
         </button>
       </nav>
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
-      <CardHomeShortcut />
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+      <Link href={"truyen/1"}><CardHomeShortcut /></Link>
+    
     </div>
   );
 }
