@@ -43,10 +43,10 @@ export default function HomeHeaderDesktop(props: IHomeHeaderDesktopProps) {
           ></div>
           <li ref={wrapperRefMyStory} className="">
             {" "}
-            <img
+            <Image
               onClick={() => setOpenPopupMyStory(true)}
               className="w-[35px] cursor-pointer h-[30px]"
-              src={bookMark.src}
+              src={bookMark}
               alt=""
             />
             <MyBookmark

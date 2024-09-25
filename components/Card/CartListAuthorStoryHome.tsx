@@ -1,4 +1,6 @@
+import Image from "next/image";
 import * as React from "react";
+import Link from "next/link";
 
 export interface ICardAuthorStoryProps {}
 
@@ -6,26 +8,35 @@ export default function CardListAuthorStoryHome(props: ICardAuthorStoryProps) {
   return (
     <div className="flex hover:shadow-lg hover:shadow-gray-600 group  p-2 text-sm gap-3   rounded-md   bg-white ">
       <div className="w-[75px] h-[110px] cursor-pointer rounded-md overflow-hidden">
-        <img
+        <Image
           className="w-full h-full object-cover group-hover:scale-125 transition-all duration-500"
-          src="https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fstory_img%2Fsmall_CnESv0QKhGQeWitSWQ2Ps6dFwJv8zZU3ewN70BVG.webp&w=1080&q=75"
+          src={require("@/public/images/image_test/img_.jpg").default}
           alt=""
         />
       </div>
       <div className="flex flex-col gap-2 ">
-        <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>
-        <p className="hover:text-[#007bff] font-medium">Liêm Phong việt Sử</p>
+        <Link href={"/truyen/ten-truyen"}>
+          {" "}
+          <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>
+        </Link>
+        <Link href={"/tac-gia/ten-tac-gia"}>
+          {" "}
+          <p className="hover:text-[#007bff] font-medium">Liêm Phong việt Sử</p>
+        </Link>
         <ul className="flex items-center text-xs h-[25px] max-w-[150px] overflow-hidden  gap-1 flex-wrap ">
           <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
-            Lịch Sử
+            <Link href={"/the-loai/lich-su"}> Lịch Sử</Link>
           </li>
           <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
-            Lịch Sử
+            <Link href={"/the-loai/lich-su"}> Lịch Sử</Link>
           </li>
         </ul>
-        <p className="max-w-[250px] font-medium overflow-hidden hover:text-[#007bff] truncate">
-          Chương 668:Dở khóc sở cười như con đười ươi
-        </p>
+        <Link href={"/truyen/ten-truyen/chapter"}>
+          {" "}
+          <p className="max-w-[250px] font-medium overflow-hidden hover:text-[#007bff] truncate">
+            Chương 668:Dở khóc sở cười như con đười ươi
+          </p>
+        </Link>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { FaRegThumbsUp, FaStar } from 'react-icons/fa';
 import defaultAvt from '@/public/images/default-avatar.jpg'
+import Image from 'next/image';
 export interface IListEvaluateStoryProps {
 }
 
@@ -9,7 +10,7 @@ export default function ListEvaluateStory(props: IListEvaluateStoryProps) {
         <ul className='flex flex-col max-h-[370px] overflow-y-auto gap-2 w-full '>
             <li className='flex gap-3 border-b p-4 min-h-[120px]  relative bg-[#fffffa]'>
                 <div className='bg-[#919191] w-10 h-10 overflow-hidden rounded-full'>
-                    <img className='w-full h-full object-cover' src={defaultAvt.src} alt="" />
+                    <Image className='w-full h-full object-cover' src={defaultAvt} alt="" />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <p className='font-bold text-sm'>nguyenminhquang46</p>
@@ -29,7 +30,7 @@ export default function ListEvaluateStory(props: IListEvaluateStoryProps) {
             </li>
             <li className='flex gap-3 border-b p-4 min-h-[120px]  relative bg-[#fffffa]'>
                 <div className='bg-[#919191] w-10 h-10 overflow-hidden rounded-full'>
-                    <img className='w-full h-full object-cover' src={defaultAvt.src} alt="" />
+                    <Image className='w-full h-full object-cover' src={defaultAvt} alt="" />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <p className='font-bold text-sm'>nguyenminhquang46</p>
@@ -49,7 +50,7 @@ export default function ListEvaluateStory(props: IListEvaluateStoryProps) {
             </li>
             <li className='flex gap-3 border-b p-4 min-h-[120px]  relative bg-[#fffffa]'>
                 <div className='bg-[#919191] w-10 h-10 overflow-hidden rounded-full'>
-                    <img className='w-full h-full object-cover' src={defaultAvt.src} alt="" />
+                    <Image className='w-full h-full object-cover' src={defaultAvt} alt="" />
                 </div>
                 <div className='flex flex-col gap-2'>
                     <p className='font-bold text-sm'>nguyenminhquang46</p>

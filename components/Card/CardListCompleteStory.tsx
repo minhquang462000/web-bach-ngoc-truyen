@@ -1,6 +1,8 @@
 'use client'
 import { BookCover } from "book-cover-3d";
 import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
 
 export interface ICardCompleteStoryProps { }
 
@@ -11,7 +13,7 @@ export default function CardListCompleteStory(props: ICardCompleteStoryProps) {
      transition-all p-2 px-4 border-t border-dotted border-gray-500 text-black text-sm duration-500 
      hover:shadow-lg hover:shadow-gray-600   rounded-md  overflow-hidden bg-white"
     >
-      <BookCover
+     <Link href={"/truyen/ten-truyen"}> <BookCover
         rotate={-40}
         rotateHover={0}
         thickness={1}
@@ -22,11 +24,11 @@ export default function CardListCompleteStory(props: ICardCompleteStoryProps) {
       >
         <div className="relative   hover:overflow-hidden     cursor-pointer ">
           <div className="relative hover:shadow-md  hover:shadow-gray-600  overflow-hidden">
-            <img
-              className="w-full h-full object-cover "
-              src="https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fstory_img%2Fsmall_lRhOeT3AEPz29Y6cg7MZMTYTsCCZJPnpVaLgSaXO.webp&w=1920&q=75"
-              alt=""
-            />
+          <Image
+            className="w-full h-full object-cover "
+            src={require("@/public/images/image_test/img_.jpg").default}
+            alt=""
+          />
             <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
               FULL
             </span>
@@ -37,10 +39,10 @@ export default function CardListCompleteStory(props: ICardCompleteStoryProps) {
             </span>
           </div>
         </div>
-      </BookCover>
+      </BookCover></Link>
       <div className="flex flex-col text-xs gap-1 ">
         <h4 className="text-lg cursor-pointer overflow-hidden font-semibold w-full truncate">
-          Quang Âm Chi Ngoại
+        <Link href={"/truyen/ten-truyen"}>  Quang Âm Chi Ngoại</Link>
         </h4>
         <p className="font-semibold text-[#6c757d]">Nhĩ Căn</p>
         <div className=" flex  gap-2">

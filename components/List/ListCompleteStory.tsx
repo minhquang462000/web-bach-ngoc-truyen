@@ -1,7 +1,7 @@
 import * as React from "react";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import CardCompleteStory from "../Card/CardListCompleteStory";
-
+import Link from "next/link";
 export interface IListCompleteStoryProps {}
 
 export default function ListCompleteStory(props: IListCompleteStoryProps) {
@@ -10,9 +10,10 @@ export default function ListCompleteStory(props: IListCompleteStoryProps) {
       <nav className="flex  text-[#128c7e]  items-center lg:col-span-3  justify-between md:col-span-2">
         {" "}
         <h3 className="font-semibold text-2xl">Mới Hoàn Thành</h3>
-        <button className="flex  items-center hover:underline gap-1  text-sm">
+       <Link href={"/moi-hoan-thanh"}>
+       <button className="flex  items-center hover:underline gap-1  text-sm">
           Tất cả <FaLongArrowAltRight />
-        </button>
+        </button></Link>
       </nav>
       <CardCompleteStory/>
       <CardCompleteStory/>

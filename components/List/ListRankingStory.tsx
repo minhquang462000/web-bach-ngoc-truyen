@@ -4,8 +4,8 @@ import CardRankingStoryImg from "../Card/CardListRankingStoryImg";
 import Link from "next/link";
 
 export interface IListRankingStoryProps {
-  title: string,
-  urlString: string
+  title: string;
+  urlString: string;
 }
 
 export default function ListRankingStory(props: IListRankingStoryProps) {
@@ -27,10 +27,12 @@ export default function ListRankingStory(props: IListRankingStoryProps) {
           <span className="bg-[#f1f5f9] w-7 flex justify-center items-center h-7 rounded-full">
             2
           </span>
-          <h4 className="max-w-[250px] overflow-hidden truncate">
-            {" "}
-            Đại Sư Huyền Học Là Sơn Thần abc abc abc
-          </h4>
+          <Link href={"/truyen/ten-truyen"}>
+            <h4 className="max-w-[250px] overflow-hidden truncate">
+              {" "}
+              Đại Sư Huyền Học Là Sơn Thần abc abc abc
+            </h4>
+          </Link>
         </span>
         <span className="font-medium text-lg">-</span>
       </div>

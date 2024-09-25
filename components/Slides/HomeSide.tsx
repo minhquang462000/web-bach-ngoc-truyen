@@ -2,31 +2,32 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import Link from "next/link";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
+import Image from "next/image";
 // import required modules
 import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
 
 const render = [
   {
-    img: "https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fslider%2FMOuZcxiTCdFXT26qVnpim3wn52jvSzY8ZnxuJyV3.jpg&w=640&q=75",
+    img: require("@/public/images/image_test/img_slide1.jpg").default,
     title: "Thọ Khang",
   },
   {
-    img: "https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fslider%2FvGDmaXvrMqpzkIB1FTOy2IXWoQOhOnOhrcUKxiCJ.jpg&w=640&q=75",
+    img: require("@/public/images/image_test/img_slide2.jpg").default,
     title: "Tri Huyện",
   },
   {
-    img: "https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fslider%2FyVSs1go89f28O6ONV8VSVX5Z0U4VUkv6Ff9WlAEW.jpg&w=640&q=75",
+    img: require("@/public/images/image_test/img_slide3.jpg").default,
     title: "Yêu nữ",
   },
   {
-    img: "https://bachngocsach.net.vn/_next/image?url=https%3A%2F%2Fngocsach.com%2Fstorage%2Fslider%2Ft5XuX5snzhE7AFlkho8sGD0Hfeiq9RxUHdKXIUji.jpg&w=640&q=75",
+    img: require("@/public/images/image_test/img_slide4.jpg").default,
     title: "Văn Âm",
   },
 ];
@@ -50,11 +51,14 @@ export default function HomeSlide(props: IHomeSlideProps) {
         >
           {render.map((item, index) => (
             <SwiperSlide key={index}>
-              <img
-                className="w-full  h-full object-cover object-center"
-                src={item.img}
-                alt={item.title}
-              />
+              <Link href={`/truyen/${item.title}`}>
+                {" "}
+                <Image
+                  className="w-full  h-full object-cover object-center"
+                  src={item.img}
+                  alt={item.title}
+                />
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -75,9 +79,7 @@ export default function HomeSlide(props: IHomeSlideProps) {
         >
           {render.map((item, index) => (
             <SwiperSlide key={index}>
-              <button className="font-medium text-xs">
-                {item.title}
-              </button>
+                <button className="font-medium text-xs">{item.title}</button>
             </SwiperSlide>
           ))}
         </Swiper>

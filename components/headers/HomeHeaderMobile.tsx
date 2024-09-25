@@ -57,19 +57,19 @@ export default function HomeHeaderMobile(props: IHomeHeaderProps) {
       <ul className="flex gap-5  items-center ">
         <li className="cursor-pointer">
           {" "}
-          <img
+          <Image
             onClick={() => setOpenPopupMyStory(true)}
             className="w-[35px] h-[30px]"
-            src={bookMark.src}
+            src={bookMark}
             alt=""
           />
         </li>
         <li ref={wrapperRefAuth} className="relative">
           {" "}
-          <img
+          <Image
             onClick={() => setOpenPopupAuth(!openPopupAuth)}
             className="w-[35px] cursor-pointer rounded-full h-[35px]"
-            src={userIcon.src}
+            src={userIcon}
             alt=""
           />
           <div
@@ -121,8 +121,8 @@ export default function HomeHeaderMobile(props: IHomeHeaderProps) {
               <button>Đăng ký sáng tác</button>
             </li>
             <li className="grid gap-2 border-t-[1px] px-4 pt-3 border-[#128c7e] grid-cols-2">
-              <img src={imgGooglePlay.src} alt="" />
-              <img src={imgAppStore.src} alt="" />
+              <Image src={imgGooglePlay} alt="" />
+              <Image src={imgAppStore} alt="" />
               <span className="flex justify-center items-center col-span-2">
                 <p>Phản hồi</p>
                 <p>-</p>

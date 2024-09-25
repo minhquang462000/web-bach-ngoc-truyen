@@ -10,6 +10,7 @@ import homeBackground from "@/public/images/bg-home.jpg";
 import ListRankingStory from "../List/ListRankingStory";
 import ListAuthorStory from "../List/ListAuthorStory";
 import ListCompleteStory from "../List/ListCompleteStory";
+import Image from "next/image";
 export interface IHomeDesktopProps { }
 
 export default function HomeDesktop(props: IHomeDesktopProps) {
@@ -33,8 +34,8 @@ export default function HomeDesktop(props: IHomeDesktopProps) {
               <li>Review Truyện</li>
             </ul>
             <nav className="grid gap-4 gap-y-3   px-6  py-2 border-[#128c7e] grid-cols-2">
-              <img src={imgGooglePlay.src} alt="" />
-              <img src={imgAppStore.src} alt="" />
+              <Image src={imgGooglePlay} alt="" />
+              <Image src={imgAppStore} alt="" />
               <span className="flex justify-center py-2  items-center text-[#128c7e] col-span-2">
                 <p>Phản hồi</p>
                 <p>-</p>
