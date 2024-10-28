@@ -16,7 +16,7 @@ export default function page(props: IpageProps) {
 
     return (
         <MainLayout>
-            <main className=' bg-[#252c33]  text-white py-10 pb-20  w-screen'>
+            <main className=' bg-[#252c33]  text-white py-10 pb-20  w-full'>
                 <div className='flex-col flex gap-4 p-2 lg:max-w-[1140px] m-auto'>
                     <div className='flex gap-1 border font-medium border-gray-500 p-2 rounded-md text-xs'>
                         <p className='hover:text-[#1268c7] cursor-pointer'>Vương Gia Marxism</p>

@@ -5,11 +5,12 @@ import CardAlreadyStory from "../Card/CardAlreadyStory";
 import CardSavedStory from "../Card/CardSavedStory";
 export interface IMyBookmarkProps {
   openPopupMyStory: boolean;
-  setOpenPopupMyStory: React.Dispatch<React.SetStateAction<boolean>>;
+  togglePopup: () => void;
+  isShowPopup: boolean;
 }
 
 export default function MyBookmark(props: IMyBookmarkProps) {
-  const { openPopupMyStory, setOpenPopupMyStory } = props;
+  const { openPopupMyStory, isShowPopup, togglePopup } = props;
   const [tabRender, setTabRender] = useState<string>("truyen-da-doc");
   const renderByTab = () => {
     switch (tabRender) {
@@ -39,19 +40,19 @@ export default function MyBookmark(props: IMyBookmarkProps) {
   };
   return (
     <div
-      className={` absolute w-screen overflow-hidden transitionProperty-[max-width] duration-300
+      className={` absolute w-full overflow-hidden transitionProperty-[max-width] duration-500
            z-20 right-0  lg:shadow-lg lg:shadow-gray-500 bg-white min-h-screen text-center top-0
-       ${
-         !openPopupMyStory
-           ? "max-w-0 "
-           : "max-w-full  px-5 lg:px-4  md:max-w-[600px] lg:max-w-[800px]"
-       }`}
+           max-w-full  px-5 lg:px-4  md:max-w-[600px] lg:max-w-[800px]
+           ${openPopupMyStory ? "translate-x-0" : "translate-x-full"} ${
+        !isShowPopup && "hidden"
+      }
+      `}
     >
       <h3 className="my-4 lg:text-start text-sm relative font-bold">
         Tủ truyện{" "}
         <IoClose
           size={20}
-          onClick={() => setOpenPopupMyStory(false)}
+          onClick={togglePopup}
           className="absolute -top-2 text-gray-400 hover:text-gray-500 right-0 cursor-pointer"
         />
       </h3>

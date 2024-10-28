@@ -12,7 +12,7 @@ export interface IHomeMobileProps { }
 
 export default function HomeMobile(props: IHomeMobileProps) {
   return (
-    <main className="w-screen lg:hidden ">
+    <main className="w-full lg:hidden ">
       <div className=" flex flex-col gap-4 mt-4 ">
         <div className="md:w-2/3 w-full m-auto ">
           <HomeSlide />

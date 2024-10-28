@@ -4,7 +4,7 @@ import { SlCloudUpload } from "react-icons/sl";
 import { VscThreeBars } from "react-icons/vsc";
 import ListHomeCategory from "../List/ListHomeCategory";
 import { useEffect, useRef, useState } from "react";
-export interface IHeaderSelectProps { }
+export interface IHeaderSelectProps {}
 
 export default function HeaderSelect(props: IHeaderSelectProps) {
   const [openListCategory, setOpenListCategory] = useState<boolean>(false);
@@ -24,12 +24,14 @@ export default function HeaderSelect(props: IHeaderSelectProps) {
     };
   }, [wrapperRefCategory, openListCategory]);
   return (
-    <section className="relative font-medium bg-[#343a40] w-screen text-xs md:text-sm text-white">
+    <section className="relative font-medium bg-[#343a40] w-full text-xs md:text-sm text-white">
       <div
-        className={`fixed overflow-hidden top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${!openListCategory ? "max-h-0" : "max-h-screen"
-          }`}
+        className={`fixed overflow-hidden w-screen top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${
+          openListCategory ? "h-screen" : "h-0"
+        } `}
       >
         <ListHomeCategory
+          openListCategory={openListCategory}
           wrapperRefCategory={wrapperRefCategory}
           setOpenListCategory={setOpenListCategory}
         />
@@ -41,7 +43,7 @@ export default function HeaderSelect(props: IHeaderSelectProps) {
         <ul className="flex justify-between  items-center">
           <li
             onClick={() => setOpenListCategory(true)}
-            className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
+            className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4   gap-1`}
           >
             <VscThreeBars />
             Thể loại

@@ -8,9 +8,9 @@ import Image from "next/image";
 export default function login(props: IloginProps) {
   
   return (
-    <main className="w-screen  text-black h-screen relative">
+    <main className="w-full  text-black h-screen relative">
       <Image
-        className="w-screen  min-h-screen object-cover object-center fixed top-0 -z-10"
+        className="w-full  min-h-screen object-cover object-center fixed top-0 -z-10"
         src={homeBackground.src}
         alt=""
       />

@@ -14,7 +14,7 @@ export interface IpageProps {
 export default function page(props: IpageProps) {
     return (
         <MainLayout>
-            <main className='p-2 w-screen overflow-hidden lg:max-w-[1140px] m-auto'>
+            <main className='p-2 w-full overflow-hidden lg:max-w-[1140px] m-auto'>
                 <CardDetailItemStory />
                 <div className='md:grid gap-2 md:p-2 lg:grid-cols-4 md:pt-2 md:grid-cols-3 w-full'>
                     <div className='md:col-span-2 lg:col-span-3 flex flex-col gap-4 w-full'>

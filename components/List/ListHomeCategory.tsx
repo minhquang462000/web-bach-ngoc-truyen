@@ -1,233 +1,36 @@
-import * as React from "react";
+import Link from "next/link";
 import { IoIosClose } from "react-icons/io";
 
 export interface IListHomeCategoryProps {
   setOpenListCategory: React.Dispatch<React.SetStateAction<boolean>>;
   wrapperRefCategory: any;
+  openListCategory: boolean;
 }
-import Link from "next/link";
+
 export default function ListHomeCategory(props: IListHomeCategoryProps) {
-  const { setOpenListCategory, wrapperRefCategory } = props;
+  const { setOpenListCategory, wrapperRefCategory, openListCategory } = props;
+
+  // Tạo danh sách 100 mục
+  const items = Array.from({ length: 100 }, (_, i) => (
+    <li key={i} className="m-auto">
+      <Link href={`/the-loai/ten-the-loai-${i + 1}`}>
+        <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2 hover:text-white cursor-pointer">
+          {`1vs1 ${i + 1}`}
+        </p>
+      </Link>
+    </li>
+  ));
   return (
     <ul
       ref={wrapperRefCategory}
-      className="grid grid-cols-2 text-sm md:grid-cols-4 lg:grid-cols-6 lg:p-10 lg:border rounded-md lg:h-max   text-[#585858] w-screen h-screen md:px-6 gap-8 lg:gap-y-2 overflow-y-auto px-4 py-2 bg-white relative"
+      className={`grid grid-cols-4 w-full md:grid-cols-7 overflow-y-auto text-sm justify-between lg:px-10 lg:border rounded-md 
+           text-[#585858] h-screen md:px-6 overflow-x-auto  px-4 py-2 md:py-4  bg-white relative `}
     >
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          {" "}
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            1vs1
-          </p>
-        </Link>
-      </li>
-      <li>
-        <Link href={"/the-loai/ten-the-loai"}>
-          <p className="hover:bg-[#128c7e] w-max h-max rounded-md p-2  hover:text-white cursor-pointer">
-            Ẩm thực{" "}
-          </p>
-        </Link>
-      </li>
-     
+      {items}
       <IoIosClose
         size={30}
         onClick={() => setOpenListCategory(false)}
-        className="cursor-pointer text-gray-600 hover:text-black absolute top-2 right-2 z-50"
+        className="cursor-pointer text-gray-600 hover:text-black absolute top-0 right-0 z-50"
       />
     </ul>
   );

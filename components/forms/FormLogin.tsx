@@ -79,7 +79,7 @@ export default function FormLogin (props: IFormLoginProps) {
         </p>
       </div>
       <div
-        className={`bg-[#5050509a] text-black text-center absolute top-0 w-screen h-screen p-2 ${
+        className={`bg-[#5050509a] text-black text-center absolute top-0 w-full h-screen p-2 ${
           !showConfirmAccount && "hidden"
         }`}
       >

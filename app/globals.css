@@ -35,3 +35,32 @@
 .myTitleHomeSlide .swiper-slide-thumb-active {
   background: #128c7e;
 }
+
+/* Kích thước của thanh cuộn */
+*::-webkit-scrollbar {
+  width: 12px; /* Độ rộng của thanh cuộn dọc */
+
+}
+/* Màu nền của thanh cuộn */
+*::-webkit-scrollbar-track {
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+/* Con trỏ của thanh cuộn */
+*::-webkit-scrollbar-thumb {
+  background-color: #9b9b9b;
+  opacity: 0.2;
+  border: 2px solid #f0f0f0;
+}
+/* Hiệu ứng khi di chuột qua con trỏ */
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #373737;
+}
+/* Ẩn thanh cuộn ngang */
+*::-webkit-scrollbar:horizontal {
+  height: 0;
+}
+.show-horizontal-scrollbar::-webkit-scrollbar:horizontal {
+  height: 10px !important;
+ }
