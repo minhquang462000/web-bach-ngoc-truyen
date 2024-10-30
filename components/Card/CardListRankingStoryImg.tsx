@@ -3,35 +3,41 @@ import { BookCover } from "book-cover-3d";
 import Image from "next/image";
 export interface ICardRankingStoryImgProps {}
 import Link from "next/link";
-
-export default function CardListRankingStoryImg(
-  props: ICardRankingStoryImgProps
-) {
+import { IBook, ICategory } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
+export default function CardListRankingStoryImg({ book }: { book: IBook }) {
   return (
-    <div className=" flex justify-between text-xs p-3 border-t-[1px] border-gray-400">
+    <li className=" flex justify-between text-xs p-3 border-t-[1px] border-gray-400">
       <div className="flex gap-3">
         <span className="bg-[#f1f5f9] w-7 flex justify-center items-center h-7 rounded-full">
           1
         </span>
         <div className="flex flex-col gap-1">
-          <Link href={"/truyen/ten-truyen"}>
+          <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
             {" "}
-            <b className="text-base w-full max-w-[200px] overflow-hidden truncate">
-              Quang Âm Chi Ngoại
-            </b>
+            <p className="text-sm font-bold w-[200px] overflow-hidden truncate">
+              {book.name}
+            </p>
           </Link>
-          <p>Tác giả:Nhĩ Căn</p>
-          <ul className="flex items-center flex-wrap gap-1 mt-2">
-            <li className="p-1 px-2 border rounded-full border-[#22C55E]">
-              <Link href={"/the-loai/ten-theloai"}> Tiên Hiệp</Link>
-            </li>
-            <li className="p-1 px-2 border rounded-full border-[#22C55E]">
-              <Link href={"/the-loai/ten-theloai"}> Tu Chân</Link>
-            </li>
+          <p>Tác giả:{book.authors[0].name}</p>
+          <ul className="flex items-center max-h-[50px] overflow-hidden  flex-wrap gap-1 mt-2">
+            {book.categories.map((category, index) => (
+              <li key={index} className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
+                <Link
+                  href={`/the-loai/${convertToSlug(category.name)}-${
+                    category._id
+                  }.html`}
+                >
+                  {category.name}
+                </Link>
+              </li>
+            ))}
+            
           </ul>
         </div>
       </div>
-      <Link href={"/truyen/ten-truyen"}>
+      <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
         <BookCover
           rotate={55}
           rotateHover={55}
@@ -42,8 +48,10 @@ export default function CardListRankingStoryImg(
         >
           <div className="relative cursor-pointer overflow-hidden">
             <Image
-              className="w-full h-full object-cover "
-              src={require("@/public/images/image_test/img_.jpg").default}
+              width={200}
+              height={300}
+              className="md:aspect-[2/3] object-cover  group-hover:scale-125 transition-all duration-500"
+              src={`${DOMAIN}/api/books/${book.images[0]}`}
               alt=""
             />
             <span className="bg-[#22C55E] absolute top-1 tex-sm -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
@@ -52,6 +60,6 @@ export default function CardListRankingStoryImg(
           </div>
         </BookCover>
       </Link>
-    </div>
+    </li>
   );
 }

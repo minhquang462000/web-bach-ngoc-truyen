@@ -5,10 +5,14 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "BachNgocTruyen",
-  description: "Web bach ngoc truyen",
+  title: "Bach Ngoc Sach",
+  metadataBase: new URL(`${process.env.NEXT_PUBLIC_API_URL}`),
+  description: "ĐỌc truyện mọi nơi",
+  icons: {
+    icon: ["/logos/logo_bns.ico?v=4"],
+    apple: "/logos/logo_bns.ico?v=4",
+  },
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{

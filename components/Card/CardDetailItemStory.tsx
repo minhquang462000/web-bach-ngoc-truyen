@@ -1,6 +1,4 @@
-import * as React from "react";
 import { FaRegPlusSquare, FaStar } from "react-icons/fa";
-
 import ListNominationStory from "../List/ListNominationStory";
 import OptionDetailItemStory from "../OptionComponent/OptionDetailImtemStory";
 import Image from "next/image";
@@ -15,9 +13,9 @@ export default function CardDetailItemStory(props: ICardDetailItemStoryProps) {
         <span className="text-black ml-1">Quang Âm Chi Ngoại</span>
       </h3>
       <div className="flex w-full md:w-3/4 lg:gap-5 gap-2 ">
-        <div className="w-[130px] h-[160px]  relative cursor-pointer md:w-[200px] lg:w-1/4  md:h-[250px] rounded-lg  overflow-hidden">
+        <div className=" relative cursor-pointer md:w-[200px] lg:w-1/4 h-max  rounded-lg  overflow-hidden">
           <Image
-            className=" w-full h-full hover:scale-125 transition-all duration-500"
+            className=" w-full aspect-[3/4]hover:scale-125 transition-all duration-500"
             src={require("@/public/images/image_test/img_.jpg").default}
             alt=""
           />

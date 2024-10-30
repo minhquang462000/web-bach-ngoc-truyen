@@ -2,34 +2,47 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-export interface ICardHomeShortcutProps { }
-
-export default function CardMainHome(props: ICardHomeShortcutProps) {
+import { IBook } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+export interface ICardProps {
+  book: IBook;
+  index: number;
+}
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
+export default function CardMainHome({ book, index }: ICardProps) {
   return (
-    <div className="flex relative flex-col text-xs md:text-sm p-3 group md:flex-row transition-all text-black   duration-500 hover:shadow-lg hover:shadow-gray-600  md:gap-2    rounded-lg  overflow-hidden bg-white">
-      <div className="md:w-1/3 w-full aspect-[2/3]">
-        <Link href={"/truyen/ten-truyen"}>
+    <div className="flex relative flex-col text-xs md:text-sm p-3 group md:flex-row transition-all text-black   duration-500 hover:shadow-lg hover:shadow-gray-600  md:gap-4    rounded-lg  overflow-hidden bg-white">
+      <div className="md:w-1/4 w-full ">
+        <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
           <div className="w-full   relative cursor-pointer   rounded-lg  overflow-hidden">
             <Image
-              className=" w-full h-full object-cover  group-hover:scale-125 transition-all duration-500"
-              src={require("@/public/images/image_test/img_.jpg").default}
+              width={200}
+              height={300}
+              className="md:aspect-[2/3] object-cover  group-hover:scale-125 transition-all duration-500"
+              src={`${DOMAIN}/api/books/${book.images[0]}`}
               alt=""
             />
-            <span className="bg-[#22C55E] absolute top-2 tex-xs -left-6 font-medium -rotate-[45deg] text-center text-white  px-8 ">
-              FULL
-            </span>
+            {book.status === 1 && (
+              <span className="bg-[#22C55E] absolute top-1 text-[10px] -left-7 font-medium -rotate-[45deg] text-center text-white  px-8 ">
+                FULL
+              </span>
+            )}
           </div>
         </Link>
       </div>
-      <div className="flex md:w-2/3 flex-col mt-2 gap-2">
-        <Link href={"/truyen/ten-truyen"}>
-          <h4 className="text-xl lg:text-base md:text-2xl hover:text-[#128c7e] cursor-pointer font-semibold w-full truncate">
-            Quang Âm Chi Ngoại
+      <div className="flex md:w-3/4 flex-col mt-2 md:mt-1 gap-2">
+        <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
+          <h4 className="text-lg lg:text-base md:text-xl hover:text-[#128c7e] cursor-pointer font-semibold w-full truncate">
+            {book.name}
           </h4>
         </Link>
-        <Link href={"/tac-gia/ten-tac-gia"}>
+        <Link
+          href={`/tac-gia/${convertToSlug(book.authors[0].name)}-${
+            book.authors[0]._id
+          }.html`}
+        >
           <p className="font-semibold cursor-pointer hover:text-[#007bff] w-full  text-[#6c757d]">
-            Nhĩ Căn
+            {book.authors[0].name}
           </p>
         </Link>
         <div className="md:flex-row flex flex-col gap-1">
@@ -50,24 +63,12 @@ export default function CardMainHome(props: ICardHomeShortcutProps) {
               <path d="M464 256h-80v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8c-88.4 0-160 71.6-160 160v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zm-288 0H96v-64c0-35.3 28.7-64 64-64h8c13.3 0 24-10.7 24-24V56c0-13.3-10.7-24-24-24h-8C71.6 32 0 103.6 0 192v240c0 26.5 21.5 48 48 48h128c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48z"></path>
             </svg>
           </div>
-          <p className="line-clamp-4  ">
-            Kỷ gia có mỹ nhân, Tứ cô nương kinh diễm thiên hạ. Tính tình kiêu
-            ngạo nhưng lại là hồng nhan bạc mệnh. Vắt óc trăn trở cưới gả ba lần
-            lại thân vùi hậu trạch, dẫn đến dung nhan bị huỷ, mất hết danh tiếng
-            bị gia tộc đuổi khỏi kinh. Trên đường lánh nạn bị phu xe tham lam
-            giết người chiếm đoạt tài sản. Hồn lìa khỏi xác, nhìn dung mạo đã
-            từng mỹ lệ dần dần thối rữa. Cuối cùng nàng cũng hiểu ra, dung nhan
-            chỉ là phù du như hoa trong gương, trăng trong nước. Lần nữa tỉnh
-            lại, nàng lại quay trở về lúc mười tuổi, hết thảy vẫn chưa phát
-            sinh. Đời này, nàng chỉ mong sống an bình, hồi đáp ân tình của nam
-            nhân đã nhặt xác cho nàng. Nhưng ngờ đâu, nàng lại phát hiện mình có
-            một thân phận khác.
-          </p>
+          <p className="line-clamp-4 text-sm  md:text-xs">{book.description}</p>
         </div>
       </div>
       <span className="absolute bg-[#950101] text-white text-xs h-8 w-[70px] text-center  -bottom-2 -right-6 font-medium  -rotate-45 font-">
         {" "}
-        Top 1
+        Top {index + 1}
       </span>
     </div>
   );

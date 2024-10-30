@@ -2,23 +2,23 @@ import { IFilter } from "@/interfaces";
 import axios from "axios";
 import { cookies } from "next/headers";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-export async function getListProduct(query: IFilter) {
+export async function getListBooksNoTotal(query: IFilter) {
   const page = query.page ? query.page : 1;
   const limit = query.limit ? query.limit : 10;
   const search = query.search ? query.search : "";
-  const tag = query.tag ? query.tag : "";
+  const tags = query.tag ? query.tag : "";
   const category = query.category ? query.category : "";
   const author = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
   const contributor = query.contributor ? query.contributor : "";
   ///---> Params
-  const params: IFilter = {
+  const params: any = {
     page,
     limit,
-    search,
-    tag,
-    category,
-    author,
+    name: search,
+    tags,
+    categories: category,
+    authors: author,
     views,
     contributor,
   };
@@ -40,11 +40,7 @@ export async function getListProduct(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    const total = res.headers && res.headers["x-total-count"];
-    return {
-      docs: res.data,
-      total,
-    };
+    return res.data
   } catch (e) {
     return null;
   }

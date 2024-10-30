@@ -1,3 +1,4 @@
+
 export interface ILayout {
   children: React.ReactNode;
 }
@@ -51,9 +52,10 @@ export interface IBook {
   status: number;
   created_at: string;
   updated_at: string;
-  category: ICategory;
-  author: IAuthor;
+  categories: ICategory[];
+  authors: IAuthor[];
   images: string[];
+  tags: ITag[];
   banner: string;
   description: string;
   view: number;

@@ -1,35 +1,46 @@
 import Image from "next/image";
-import * as React from "react";
 import Link from "next/link";
-
-export interface ICardAuthorStoryProps { }
-
-export default function CardListAuthorStoryHome(props: ICardAuthorStoryProps) {
+import { IBook } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
+export default function CardListAuthorStoryHome({ book }: { book: IBook }) {
   return (
     <div className="flex hover:shadow-lg hover:shadow-gray-600 group  p-2 px-4 text-sm gap-3   rounded-md   bg-white ">
-      <div className="w-1/4 cursor-pointer rounded-md overflow-hidden">
+      <div className="w-1/5 md:w-1/4 h-max  cursor-pointer rounded-md overflow-hidden">
         <Image
-          className="w-full h-full object-cover group-hover:scale-125 transition-all duration-500"
-          src={require("@/public/images/image_test/img_.jpg").default}
+          width={200}
+          height={300}
+          className="w-full aspect-[5/7] object-cover group-hover:scale-125 transition-all duration-500"
+          src={`${DOMAIN}/api/books/${book.images[0]}`}
           alt=""
         />
       </div>
-      <div className="flex flex-col gap-2 w-3/5">
-        <Link href={"/truyen/ten-truyen"}>
+      <div className="flex flex-col gap-2 w-4/5">
+        <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
           {" "}
           <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>
         </Link>
-        <Link href={"/tac-gia/ten-tac-gia"}>
+        <Link
+          href={`/the-loai/${convertToSlug(book.authors[0].name)}-${
+            book.authors[0]._id
+          }.html`}
+        >
           {" "}
-          <p className="hover:text-[#007bff] font-medium">Liêm Phong việt Sử</p>
+          <p className="hover:text-[#007bff] font-medium">{book.authors[0].name}</p>
         </Link>
         <ul className="flex items-center text-xs h-[25px] max-w-[150px] overflow-hidden  gap-1 flex-wrap ">
-          <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
-            <Link href={"/the-loai/lich-su"}> Lịch Sử</Link>
-          </li>
-          <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
-            <Link href={"/the-loai/lich-su"}> Lịch Sử</Link>
-          </li>
+          {book.categories.map((category, index) => (
+            <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
+              <Link
+                href={`/the-loai/${convertToSlug(category.name)}-${
+                  category._id
+                }.html`}
+              >
+                {category.name}
+              </Link>
+            </li>
+          ))}
+          
         </ul>
         <Link href={"/truyen/ten-truyen/chapter"}>
           {" "}
