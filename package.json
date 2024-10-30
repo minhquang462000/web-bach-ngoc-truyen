@@ -10,11 +10,15 @@
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
+    "axios": "^1.7.7",
     "book-cover-3d": "^1.1.2",
-    "next": "^14.2.13",
+    "js-cookie": "^3.0.5",
+    "next": "^15.0.2",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.2.1",
+    "sharp": "^0.33.5",
+    "slugify": "^1.6.6",
     "swiper": "^11.1.3"
   },
   "devDependencies": {

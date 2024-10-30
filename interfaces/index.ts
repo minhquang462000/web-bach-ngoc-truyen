@@ -1,3 +1,73 @@
 export interface ILayout {
-    children: React.ReactNode;
-  }
+  children: React.ReactNode;
+}
+export interface IFilter {
+  search: string;
+  tag: string;
+  page: number;
+  limit: number;
+  category: string;
+  views: number;
+  author: string;
+  contributor: string;
+}
+export interface ICategory {
+  _id: string;
+  name: string;
+  status: number;
+  created_at: string;
+  updated_at: string;
+}
+export interface IAuthor {
+  _id: string;
+  name: string;
+  status: number;
+  created_at: string;
+  updated_at: string;
+}
+export interface ITag {
+  _id: string;
+  name: string;
+  status: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface IUser {
+  _id: string;
+  name: string;
+  email: string;
+  avatar: string;
+  status: number;
+  gender: number;
+  address: string;
+  phone: string;
+  created_at: string;
+  updated_at: string;
+}
+export interface IBook {
+  _id: string;
+  name: string;
+  status: number;
+  created_at: string;
+  updated_at: string;
+  category: ICategory;
+  author: IAuthor;
+  images: string[];
+  banner: string;
+  description: string;
+  view: number;
+  nominate: IUser;
+  contributor: string;
+}
+export interface IChapter {
+  _id: string;
+  name: string;
+  chapterNumber: number;
+  created_at: string;
+  views: number;
+  images: String[];
+  updated_at: string;
+  book: string;
+  content: string;
+}

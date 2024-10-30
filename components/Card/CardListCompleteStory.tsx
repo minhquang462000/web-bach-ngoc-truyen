@@ -13,36 +13,37 @@ export default function CardListCompleteStory(props: ICardCompleteStoryProps) {
      transition-all p-2 px-4 border-t border-dotted border-gray-500 text-black text-sm duration-500 
      hover:shadow-lg hover:shadow-gray-600   rounded-md  overflow-hidden bg-white"
     >
-     <Link href={"/truyen/ten-truyen"}> <BookCover
-        rotate={-40}
-        rotateHover={0}
-        thickness={1}
-        width={80}
-        height={120}
-        radius={5}
-        shadowColor="none"
-      >
-        <div className="relative   hover:overflow-hidden     cursor-pointer ">
-          <div className="relative hover:shadow-md  hover:shadow-gray-600  overflow-hidden">
-          <Image
-            className="w-full h-full object-cover "
-            src={require("@/public/images/image_test/img_.jpg").default}
-            alt=""
-          />
-            <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
-              FULL
-            </span>
+      <Link href={"/truyen/ten-truyen"}>
+        <BookCover
+          rotate={-35}
+          rotateHover={0}
+          thickness={1}
+          width={80}
+          height={120}
+          radius={5}
+          shadowColor="none"
+        >
+          <div style={{transformStyle: "preserve-3d"}} className="relative   hover:overflow-hidden     cursor-pointer ">
+            <div className="relative hover:shadow-md  hover:shadow-gray-600  overflow-hidden">
+              <Image
+                className="w-full h-full object-cover "
+                src={require("@/public/images/image_test/img_.jpg").default}
+                alt=""
+              />
+              <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
+                FULL
+              </span>
+            </div>
+            <div className="absolute  flex items-center top-0 -z-10  p-1 w-[16px]   -left-4  h-full   justify-center bg-gradient-to-b from-[#eee] to-[#aaa] text-center text-xs ">
+              <span className="absolute rotate-[90deg]   translate-y-[-10px] h-[16x] pl-[16px] text-xs leading-8  font-medium text-black">
+                bachngocsach
+              </span>
+            </div>
           </div>
-          <div className="absolute  flex items-center top-0 -z-10  p-1 w-[16px]   -left-4  h-full   justify-center bg-gradient-to-b from-[#eee] to-[#aaa] text-center text-xs ">
-            <span className="absolute rotate-[90deg]   translate-y-[-10px] h-[16x] pl-[16px] text-xs leading-8  font-medium text-black">
-              bachngocsach
-            </span>
-          </div>
-        </div>
-      </BookCover></Link>
+        </BookCover></Link>
       <div className="flex flex-col text-xs gap-1 ">
         <h4 className="text-lg cursor-pointer overflow-hidden font-semibold w-full truncate">
-        <Link href={"/truyen/ten-truyen"}>  Quang Âm Chi Ngoại</Link>
+          <Link href={"/truyen/ten-truyen"}>  Quang Âm Chi Ngoại</Link>
         </h4>
         <p className="font-semibold text-[#6c757d]">Nhĩ Căn</p>
         <div className=" flex  gap-2">

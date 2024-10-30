@@ -2,24 +2,26 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-export interface ICardHomeShortcutProps {}
+export interface ICardHomeShortcutProps { }
 
 export default function CardMainHome(props: ICardHomeShortcutProps) {
   return (
-    <div className="flex relative flex-col text-xs md:text-sm p-2 group md:flex-row transition-all text-black  duration-500 hover:shadow-lg hover:shadow-gray-600  md:gap-4  md:p-3  rounded-md  overflow-hidden bg-white">
-      <Link href={"/truyen/ten-truyen"}>
-        <div className="w-full h-full relative cursor-pointer md:w-[90px] md:h-[130px] rounded-lg  overflow-hidden">
-          <Image
-            className=" w-full h-full object-cover  group-hover:scale-125 transition-all duration-500"
-            src={require("@/public/images/image_test/img_.jpg").default}
-            alt=""
-          />
-          <span className="bg-[#22C55E] absolute top-2 tex-xs -left-6 font-medium -rotate-[45deg] text-center text-white  px-8 ">
-            FULL
-          </span>
-        </div>
-      </Link>
-      <div className="flex md:w-[290px] flex-col mt-2 gap-2">
+    <div className="flex relative flex-col text-xs md:text-sm p-3 group md:flex-row transition-all text-black   duration-500 hover:shadow-lg hover:shadow-gray-600  md:gap-2    rounded-lg  overflow-hidden bg-white">
+      <div className="md:w-1/3 w-full aspect-[2/3]">
+        <Link href={"/truyen/ten-truyen"}>
+          <div className="w-full   relative cursor-pointer   rounded-lg  overflow-hidden">
+            <Image
+              className=" w-full h-full object-cover  group-hover:scale-125 transition-all duration-500"
+              src={require("@/public/images/image_test/img_.jpg").default}
+              alt=""
+            />
+            <span className="bg-[#22C55E] absolute top-2 tex-xs -left-6 font-medium -rotate-[45deg] text-center text-white  px-8 ">
+              FULL
+            </span>
+          </div>
+        </Link>
+      </div>
+      <div className="flex md:w-2/3 flex-col mt-2 gap-2">
         <Link href={"/truyen/ten-truyen"}>
           <h4 className="text-xl lg:text-base md:text-2xl hover:text-[#128c7e] cursor-pointer font-semibold w-full truncate">
             Quang Âm Chi Ngoại

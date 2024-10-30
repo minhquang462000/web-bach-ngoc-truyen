@@ -17,7 +17,7 @@ export default function ListRankingStory(props: IListRankingStoryProps) {
         <h3 className="font-bold text-center text-2xl">{title} </h3>
         <Link href={urlString || ""}>
           <button className="flex  hover:underline items-center gap-1 text-[#128c7e] text-sm">
-            Tất cả <FaLongArrowAltRight size={20} />
+            Xem thêm <FaLongArrowAltRight size={20} />
           </button>
         </Link>
       </nav>

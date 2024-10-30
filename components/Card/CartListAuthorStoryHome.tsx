@@ -2,19 +2,19 @@ import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
 
-export interface ICardAuthorStoryProps {}
+export interface ICardAuthorStoryProps { }
 
 export default function CardListAuthorStoryHome(props: ICardAuthorStoryProps) {
   return (
-    <div className="flex hover:shadow-lg hover:shadow-gray-600 group  p-2 text-sm gap-3   rounded-md   bg-white ">
-      <div className="w-[75px] h-[110px] cursor-pointer rounded-md overflow-hidden">
+    <div className="flex hover:shadow-lg hover:shadow-gray-600 group  p-2 px-4 text-sm gap-3   rounded-md   bg-white ">
+      <div className="w-1/4 cursor-pointer rounded-md overflow-hidden">
         <Image
           className="w-full h-full object-cover group-hover:scale-125 transition-all duration-500"
           src={require("@/public/images/image_test/img_.jpg").default}
           alt=""
         />
       </div>
-      <div className="flex flex-col gap-2 ">
+      <div className="flex flex-col gap-2 w-3/5">
         <Link href={"/truyen/ten-truyen"}>
           {" "}
           <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>

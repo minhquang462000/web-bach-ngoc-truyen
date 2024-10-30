@@ -31,7 +31,7 @@ const render = [
     title: "Văn Âm",
   },
 ];
-export interface IHomeSlideProps {}
+export interface IHomeSlideProps { }
 
 export default function HomeSlide(props: IHomeSlideProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
@@ -79,7 +79,7 @@ export default function HomeSlide(props: IHomeSlideProps) {
         >
           {render.map((item, index) => (
             <SwiperSlide key={index}>
-                <button className="font-medium text-xs">{item.title}</button>
+              <button className="font-medium md:h-[40px] lg:h-max overflow-hidden md:text-sm lg:text-xs text-xs">{item.title}</button>
             </SwiperSlide>
           ))}
         </Swiper>

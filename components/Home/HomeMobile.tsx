@@ -7,6 +7,7 @@ import ListNewestChapter from "@/components/List/ListChapterNewest";
 import ListRankingStory from "../List/ListRankingStory";
 import ListAuthorStory from "../List/ListAuthorStory";
 import ListCompleteStory from "../List/ListCompleteStory";
+import SectionRankBooks from "../List/SectionRankBooks";
 
 export interface IHomeMobileProps { }
 
@@ -21,9 +22,7 @@ export default function HomeMobile(props: IHomeMobileProps) {
         <ListShortcut />
         <ListNewestStory />
         <ListNewestChapter />
-        <ListRankingStory title="Yêu Thích Tháng" urlString="/yeu-thich-thang" />
-        <ListRankingStory title="Truyện Hot" urlString="/truyen-hot" />
-        <ListRankingStory title="Thịnh Hành Tuần" urlString="/thinh-hanh-tuan" />
+        <SectionRankBooks />
         <ListAuthorStory />
         <ListCompleteStory />
       </div>
