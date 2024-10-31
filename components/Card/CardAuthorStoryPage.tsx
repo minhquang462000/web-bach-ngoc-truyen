@@ -1,33 +1,42 @@
 import * as React from "react";
 
-export interface ICardStoryAuthorPageProps {}
+export interface ICardStoryAuthorPageProps { }
 import Image from "next/image";
 import Link from "next/link";
-
-export default function CardAuthorPageStory(props: ICardStoryAuthorPageProps) {
+import { IBook } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
+export default function CardAuthorPageStory({ book, author }: { book: IBook, author?: string }) {
+  const arrCategories = book.categories.map((category) => category.name);
   return (
     <div className="group  w-full flex text-xs md:text-sm flex-col gap-2 lg:items-center rounded-md hover:shadow-md  shadow-gray-400 p-2 md:p-4 pb-5">
-      <Link href={"/truyen/ten-truyen"}>
+      <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
         <div className="w-[180px] md:w-[180px] h-[240px] md:h-[250px]   m-auto border border-white relative cursor-pointer  rounded-lg  overflow-hidden">
           <Image
+            width={200}
+            height={300}
             className=" w-full h-full group-hover:scale-125 transition-all duration-500"
-            src={require("@/public/images/image_test/img_.jpg").default}
+            src={`${DOMAIN}/api/books/${book.images[0]}`}
             alt=""
           />
-          <span className="bg-[#22C55E] absolute top-2 tex-xs -left-6 font-medium -rotate-[45deg] text-center text-white  px-8  md:py-0">
-            FULL
-          </span>
+          {
+            book.status === 2 && (
+              <span className="bg-[#22C55E] absolute top-2 tex-xs -left-6 font-medium -rotate-[45deg] text-center text-white  px-8  md:py-0">
+                FULL
+              </span>
+            )
+          }
         </div>
       </Link>
       <div className="w-full flex flex-col gap-1 text-center">
-        <Link href={"/truyen/ten-truyen"}>
+        <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
           <h3 className="text-base w-full overflow-hidden truncate  text-[#1061c3] font-bold">
-            Hương Sắc Khuynh Thành
+            {book.name}
           </h3>
         </Link>
-        <p className="text-[#26a8cb]">Thường Thư Hân</p>
+        {author !== 'tac-gia' && (<p className="text-[#26a8cb]"></p>)}
         <p className="text-[#18a263] w-full italic overflow-hidden font-light truncate">
-          Ngôn tình ,Đô Thị ,Trinh thám, Thời Sự
+          {arrCategories.join(", ")}
         </p>
       </div>
     </div>

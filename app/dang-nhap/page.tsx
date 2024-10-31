@@ -11,6 +11,7 @@ export default function login(props: IloginProps) {
     <main className="w-full  text-black h-screen relative">
       <Image
         className="w-full  min-h-screen object-cover object-center fixed top-0 -z-10"
+        layout="fill"
         src={homeBackground.src}
         alt=""
       />

@@ -10,7 +10,7 @@ export interface ITitleChangePageProps {
 export default function TitleChangePage(props: ITitleChangePageProps) {
     const { title, url } = props;
     return (
-        <nav className="flex p-3 border-b-[1px] border-gray-400 items-center bg-white  justify-between col-span-2">
+        <li className="flex p-3 border-b-[1px] border-gray-400 items-center bg-white  justify-between col-span-2">
             {" "}
             <h3 className="font-bold text-sm">{title}</h3>
             <Link href={url}>
@@ -18,6 +18,6 @@ export default function TitleChangePage(props: ITitleChangePageProps) {
                     <FaLongArrowAltRight size={25} />
                 </button>
             </Link>
-        </nav>
+        </li>
     );
 }

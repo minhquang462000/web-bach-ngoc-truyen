@@ -4,18 +4,18 @@ import { BookCover } from "book-cover-3d";
 import Image from "next/image";
 import Link from "next/link";
 
-export interface ICardCompleteStoryProps {}
+export interface ICardCompleteStoryProps { }
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function CardListCompleteStory({ book }: { book: IBook }) {
   return (
     <div
-      className="flex relative gap-4 
+      className="flex relative gap-2 
      transition-all p-2 px-4 border-t border-dotted border-gray-500 text-black text-sm duration-500 
      hover:shadow-lg hover:shadow-gray-600   rounded-md  overflow-hidden bg-white"
     >
       <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
         <BookCover
-          rotate={-35}
+          rotate={-30}
           rotateHover={0}
           thickness={1}
           width={80}
@@ -25,23 +25,23 @@ export default function CardListCompleteStory({ book }: { book: IBook }) {
         >
           <div
             style={{ transformStyle: "preserve-3d" }}
-            className="relative   hover:overflow-hidden     cursor-pointer "
+            className="relative   hover:overflow-hidden    cursor-pointer "
           >
-            <div className="relative hover:shadow-md  hover:shadow-gray-600  overflow-hidden">
+            <div className="relative hover:shadow-md h-[120px]  hover:shadow-gray-600  overflow-hidden">
               <Image
                 className="w-full h-full object-cover "
-                width={200}
-                height={300}
+                width={80}
+                height={130}
                 src={`${DOMAIN}/api/books/${book.images[0]}`}
                 alt=""
               />
               {book.status === 1 && (
-                <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
+                <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[50deg] text-center text-white  px-5 ">
                   FULL
                 </span>
               )}
             </div>
-            <div className="absolute  flex items-center top-0 -z-10  p-1 w-[16px]   -left-4  h-full   justify-center bg-gradient-to-b from-[#eee] to-[#aaa] text-center text-xs ">
+            <div style={{ transform: "perspective(500px) rotateY(-50deg)" }} className="absolute  flex items-center top-0 -z-10  p-1 w-[16px]   -left-4  h-full   justify-center bg-gradient-to-b from-[#eee] to-[#aaa] text-center text-xs ">
               <span className="absolute rotate-[90deg]   translate-y-[-10px] h-[16x] pl-[16px] text-xs leading-8  font-medium text-black">
                 bachngocsach
               </span>
@@ -50,15 +50,14 @@ export default function CardListCompleteStory({ book }: { book: IBook }) {
         </BookCover>
       </Link>
       <div className="flex flex-col text-xs gap-1 ">
-        <h4 className="text-lg cursor-pointer overflow-hidden font-semibold w-full truncate">
+        <p className="text-lg cursor-pointer overflow-hidden font-semibold w-[300px] md:w-[250px] truncate">
           <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
             {book.name}
           </Link>
-        </h4>
+        </p>
         <Link
-          href={`/the-loai/${convertToSlug(book.authors[0].name)}-${
-            book.authors[0]._id
-          }.html`}
+          href={`/tac-gia/${convertToSlug(book.authors[0].name)}-${book.authors[0]._id
+            }.html`}
         >
           {" "}
           <p className="font-semibold text-[#6c757d]">{book.authors[0].name}</p>

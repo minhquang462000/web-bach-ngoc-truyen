@@ -10,11 +10,13 @@ export interface IFilter {
   category: string;
   views: number;
   author: string;
+  status: number;
   contributor: string;
 }
 export interface ICategory {
   _id: string;
   name: string;
+  description: string;
   status: number;
   created_at: string;
   updated_at: string;
@@ -23,6 +25,7 @@ export interface IAuthor {
   _id: string;
   name: string;
   status: number;
+  description: string;
   created_at: string;
   updated_at: string;
 }
@@ -30,6 +33,7 @@ export interface ITag {
   _id: string;
   name: string;
   status: number;
+  description: string;
   created_at: string;
   updated_at: string;
 }

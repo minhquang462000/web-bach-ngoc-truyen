@@ -1,13 +1,12 @@
 
 import { getListBooksNoTotal } from '@/api/books';
-import { getOneCategory } from '@/api/category';
+import { getOneTag } from '@/api/tags';
 import CardTypeStory from '@/components/Card/CardTypeStory';
 import ButtonChangePage from '@/components/OptionComponent/ButtonChangePage';
 import ButtonShowCategory from '@/components/OptionComponent/ButtonShowCategory';
-import { IBook, ICategory, IFilter } from '@/interfaces';
+import { IBook, IFilter, ITag } from '@/interfaces';
 import { MainLayout } from '@/layouts';
-import { Metadata, ResolvingMetadata } from 'next';
-
+import { Metadata } from 'next';
 
 type Props = {
     params: Promise<{ slug: string }>
@@ -19,15 +18,14 @@ export async function generateMetadata(
 ): Promise<Metadata> {
     const slug = (await params).slug;
     const id = slug.split("-").pop()?.split(".")[0];
-    const category = await getOneCategory(id as string);
-
+    const tag = await getOneTag(id as string);
     return {
-        title: category?.name,
+        title: tag?.name,
         metadataBase: new URL(`${process.env.NEXT_PUBLIC_API_URL}`),
-        description: category?.description,
+        description: tag?.description,
         openGraph: {
-            title: category?.name,
-            description: category?.description,
+            title: tag?.name,
+            description: tag?.description,
             type: "website"
         },
     };
@@ -35,21 +33,22 @@ export async function generateMetadata(
 export default async function page({ params }: { params: { slug: string } }) {
     const slug = (await params).slug;
     const id = slug.split("-").pop()?.split(".")[0];
-    const category: ICategory = await getOneCategory(id as string);
-    const bookSameCategory = await getListBooksNoTotal({ category: id, page: 0, limit: 12 } as IFilter)
+    const tag: ITag = await getOneTag(id as string);
+    const bookSameTag = await getListBooksNoTotal({ tag: id, page: 0, limit: 12 } as IFilter)
+    const title = tag?.name === "Truyện Hay" ? tag?.name : `Truyện ${tag?.name}`
     return (
         <MainLayout>
             <main className='lg:max-w-[1140px] w-full md:max-w-[705px] flex flex-col gap-3 m-auto'>
                 <div className='w-full flex flex-col md:flex-row py-4 justify-between '>
-                    <h2 className='text-center font-bold text-2xl w-max p-3'>Truyện {category?.name}</h2>
+                    <h2 className='text-center font-bold text-2xl w-max p-3'>{title}</h2>
                     <ButtonShowCategory />
                 </div>
                 <nav className='p-2 bg-white '>
                     <b className='mr-1'>Mô tả thể loại :</b>
-                    <span>{category?.description}</span>
+                    <span>Truyện nói về ẩm thực ,sở thích ăn uống, quá trình nấu nướng.</span>
                 </nav>
                 <div className='grid grid-cols-2  lg:grid-cols-3 bg-transparent gap-2 lg:gap-4'>
-                    {bookSameCategory?.map((book: IBook, index: number) => (
+                    {bookSameTag?.map((book: IBook, index: number) => (
                         <CardTypeStory key={index} book={book} />
                     ))}
 

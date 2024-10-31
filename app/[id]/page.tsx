@@ -16,6 +16,7 @@ export default function page(props: IpageProps) {
           <ButtonShowCategory />
         </div>
         <div className="grid grid-cols-2  lg:grid-cols-3 bg-transparent gap-2 lg:gap-4">
+          {/* <CardTypeStory />
           <CardTypeStory />
           <CardTypeStory />
           <CardTypeStory />
@@ -26,8 +27,7 @@ export default function page(props: IpageProps) {
           <CardTypeStory />
           <CardTypeStory />
           <CardTypeStory />
-          <CardTypeStory />
-          <CardTypeStory />
+          <CardTypeStory /> */}
         </div>
         <ButtonChangePage />
       </main>

@@ -32,7 +32,7 @@ export default function FormLogin (props: IFormLoginProps) {
     <div className='relative'>
        <div className="m-auto w-full md:max-w-[570px] flex gap-7 p-5 px-10 shadow-gray-300 relative top-[6rem] lg:top-[9rem] items-center flex-col  bg-[#ffffff] bg-opacity-50 rounded-2xl h-max shadow-md lg:shadow-lg">
         <div className="flex flex-col gap-2 items-center mb-5">
-          <Image src={logoMain} alt={"imgLogo"} width={160} />
+        <Link href={"/"}>  <Image src={logoMain} alt={"imgLogo"} width={160} /></Link>
           <p className="text-2xl text-[#128c7e]  font-medium">Đăng nhập</p>
         </div>
         <div className="w-full relative p-2 px-3 h-max  border-[#128c7e] border-2 rounded-md">

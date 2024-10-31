@@ -15,7 +15,7 @@ export default function FormRegister (props: IFormRegisterProps) {
   return (
     <div className="m-auto w-full md:max-w-[570px] flex gap-5 p-5 px-10  shadow-gray-300 relative top-[4rem] lg:top-[9rem] items-center flex-col bg-opacity-60 bg-[#ffffff] rounded-2xl shadow-md lg:shadow-lg">
         <div className="flex flex-col items-center gap-2">
-          <Image src={logoMain} alt={"imgLogo"} width={160} />
+        <Link href={"/"}>  <Image src={logoMain} alt={"imgLogo"} width={160} /></Link>
           <p className="text-2xl text-[#128c7e]  font-medium">Đăng ký</p>
         </div>
         <div className="w-full relative p-2 px-3 h-max border-2  border-[#128c7e]  rounded-md">

@@ -22,7 +22,7 @@ export default function CardMainHome({ book, index }: ICardProps) {
               src={`${DOMAIN}/api/books/${book.images[0]}`}
               alt=""
             />
-            {book.status === 1 && (
+            {book.status === 2 && (
               <span className="bg-[#22C55E] absolute top-1 text-[10px] -left-7 font-medium -rotate-[45deg] text-center text-white  px-8 ">
                 FULL
               </span>

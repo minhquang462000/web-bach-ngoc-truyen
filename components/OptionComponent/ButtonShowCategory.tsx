@@ -3,7 +3,7 @@ import * as React from "react";
 import ListHomeCategory from "../List/ListHomeCategory";
 import Link from "next/link";
 
-export interface IButtonShowCategoryProps {}
+export interface IButtonShowCategoryProps { }
 
 export default function ButtonShowCategory(props: IButtonShowCategoryProps) {
   const [showListCategory, setShowListCategory] = React.useState(false);
@@ -44,18 +44,16 @@ export default function ButtonShowCategory(props: IButtonShowCategoryProps) {
         </li>
       </ul>
       <div
-        className={`fixed top-0 right-0 z-50 shadow-md transition-all duration-500  ${
-          !showListCategory ? "top-[-100%]" : "top-0"
-        }`}
+        className={`fixed overflow-hidden w-screen top-0 right-0 z-50 shadow-md transitionProperty-[max-height] duration-500  ${showListCategory ? "h-screen" : "h-0"
+          } `}
       >
         <ListHomeCategory
           wrapperRefCategory={wrapperRefCategory}
           setOpenListCategory={setShowListCategory}
         />
         <div
-          className={`min-h-screen bg-[#ffffffc3] ${
-            showListCategory ? "block" : "hidden"
-          }`}
+          className={`min-h-screen bg-[#ffffffc3] ${showListCategory ? "block" : "hidden"
+            }`}
         ></div>
       </div>
     </div>

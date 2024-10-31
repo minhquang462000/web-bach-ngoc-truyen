@@ -1,9 +1,9 @@
 import FooterMain from "@/components/foorters/FooterMain";
-import { ILayout } from "@/interfaces";
-import * as React from "react";
+import {  ILayout } from "@/interfaces";
 import homeBackground from "@/public/images/bg-home.jpg";
 import HomeHeader from "@/components/headers/HomeHeader";
-export function MainLayout({ children }: Readonly<ILayout>) {
+export async function MainLayout({ children }: Readonly<ILayout>) {
+
   return (
     <section className="m-auto w-full relative bg-transparent">
       <HomeHeader />

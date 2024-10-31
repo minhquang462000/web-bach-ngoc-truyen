@@ -12,10 +12,10 @@ export default async function ListNewestChapter() {
     limit: 9,
   } as IFilter);
   return (
-    <div className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
+    <ul className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
       <TitleChangePage title="Chương mới cập nhật" url="/truyen-moi-nhat" />
       {bookChapterNewest?.map((book, index) => (
-        <div
+        <li
           key={index}
           className="flex gap-3 w-full text-sm hover:bg-gray-200 px-3 py-2"
         >
@@ -50,8 +50,8 @@ export default async function ListNewestChapter() {
               </p>
             </Link>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

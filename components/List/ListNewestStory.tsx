@@ -11,10 +11,10 @@ export default async function ListNewestStory() {
     limit: 9,
   } as IFilter);
   return (
-    <div className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
+    <ul className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
       <TitleChangePage title="Truyện mới nhất" url="/truyen-moi-nhat" />
       {bookNewest?.map((book, index) => (
-        <div
+        <li
           key={index}
           className="flex gap-3 text-sm hover:bg-gray-200 px-3 py-2"
         >
@@ -56,8 +56,8 @@ export default async function ListNewestStory() {
               </p>
             </Link>
           </div>
-        </div>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 }

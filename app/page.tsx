@@ -14,6 +14,7 @@ import ListAuthorStory from "@/components/List/ListAuthorStory";
 import ListCompleteStory from "@/components/List/ListCompleteStory";
 import { getListBooksNoTotal } from "@/api/books";
 import { IBook, IFilter } from "@/interfaces";
+import { getListCategory } from "@/api/category";
 export default async function Home() {
   const listBookHotWeek: IBook[] = await getListBooksNoTotal({
     page: 1,
@@ -27,6 +28,11 @@ export default async function Home() {
     page: 1,
     limit: 10,
   } as IFilter);
+  const listBookSlide = await getListBooksNoTotal({
+    page: 1,
+    limit: 4,
+    status: 2,
+  } as IFilter);  
   return (
     <MainLayout>
       <HeaderSelect />
@@ -36,7 +42,7 @@ export default async function Home() {
             <ListShortcut />
           </div>
           <div className="lg:col-span-2  col-span-1 ">
-            <HomeSlide />
+            <HomeSlide bookRender={listBookSlide} />
           </div>
           <div className="h-full hidden lg:block bg-white text-sm border ">
             <p className="text-center font-medium p-4 pb-2 border-b text-[#128c7e] ">

@@ -12,6 +12,7 @@ export default function register(props: IloginProps) {
       <Image
         className="w-full  min-h-screen object-cover object-center fixed top-0 -z-10"
         src={homeBackground.src}
+        layout="fill"
         alt=""
       />
     <FormRegister/>

@@ -20,13 +20,15 @@ export async function getListBooksNoTotal(query: IFilter) {
     categories: category,
     authors: author,
     views,
+    status: query.status,
     contributor,
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
     if (
       params[key] === "" ||
-      (Array.isArray(params[key]) && params[key].length === 0)
+      (Array.isArray(params[key]) && params[key].length === 0) ||
+      !params[key]
     ) {
       delete params[key];
     }

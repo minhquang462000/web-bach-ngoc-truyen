@@ -18,12 +18,11 @@ export default function CardListAuthorStoryHome({ book }: { book: IBook }) {
       <div className="flex flex-col gap-2 w-4/5">
         <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
           {" "}
-          <b className=" text-base hover:text-[#128c7e]">Vương Gia Marxism</b>
+          <p className=" text-base font-medium max-w-[300px] md:w-[250px] overflow-hidden truncate hover:text-[#128c7e]">{book.name}</p>
         </Link>
         <Link
-          href={`/the-loai/${convertToSlug(book.authors[0].name)}-${
-            book.authors[0]._id
-          }.html`}
+          href={`/tac-gia/${convertToSlug(book.authors[0].name)}-${book.authors[0]._id
+            }.html`}
         >
           {" "}
           <p className="hover:text-[#007bff] font-medium">{book.authors[0].name}</p>
@@ -32,15 +31,14 @@ export default function CardListAuthorStoryHome({ book }: { book: IBook }) {
           {book.categories.map((category, index) => (
             <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
               <Link
-                href={`/the-loai/${convertToSlug(category.name)}-${
-                  category._id
-                }.html`}
+                href={`/the-loai/${convertToSlug(category.name)}-${category._id
+                  }.html`}
               >
                 {category.name}
               </Link>
             </li>
           ))}
-          
+
         </ul>
         <Link href={"/truyen/ten-truyen/chapter"}>
           {" "}

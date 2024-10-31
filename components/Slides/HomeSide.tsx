@@ -12,32 +12,19 @@ import "swiper/css/thumbs";
 import Image from "next/image";
 // import required modules
 import { FreeMode, Autoplay, Thumbs } from "swiper/modules";
+import { IBook } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
 
-const render = [
-  {
-    img: require("@/public/images/image_test/img_slide1.jpg").default,
-    title: "Thọ Khang",
-  },
-  {
-    img: require("@/public/images/image_test/img_slide2.jpg").default,
-    title: "Tri Huyện",
-  },
-  {
-    img: require("@/public/images/image_test/img_slide3.jpg").default,
-    title: "Yêu nữ",
-  },
-  {
-    img: require("@/public/images/image_test/img_slide4.jpg").default,
-    title: "Văn Âm",
-  },
-];
-export interface IHomeSlideProps { }
 
-export default function HomeSlide(props: IHomeSlideProps) {
+export interface IHomeSlideProps {
+  bookRender: IBook[]
+}
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
+export default function HomeSlide({ bookRender }: IHomeSlideProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
   return (
-    <div className="w-full h-full  rounded-md overflow-hidden  ">
-      <div className="w-full lg:h-[90%]">
+    <div className="w-full  rounded-md overflow-hidden  ">
+      <div className="w-full max-h-[50vw] lg:h-[280px]   ">
         <Swiper
           spaceBetween={10}
           loop={true}
@@ -49,14 +36,16 @@ export default function HomeSlide(props: IHomeSlideProps) {
           modules={[FreeMode, Autoplay, Thumbs]}
           className="myImgHomeSlide"
         >
-          {render.map((item, index) => (
+          {bookRender.map((item, index) => (
             <SwiperSlide key={index}>
-              <Link href={`/truyen/${item.title}`}>
+              <Link href={`/truyen/${convertToSlug(item.name)}-${item._id}.html`}>
                 {" "}
                 <Image
-                  className="w-full  h-full object-cover object-center"
-                  src={item.img}
-                  alt={item.title}
+                  width={200}
+                  height={100}
+                  className="w-full  aspect-[3/4] object-cover object-center"
+                  src={item.images[1] ? `${DOMAIN}/api/books/${item.images[1]}` : `${DOMAIN}/api/books/${item.images[0]}`}
+                  alt={item.name}
                 />
               </Link>
             </SwiperSlide>
@@ -77,9 +66,9 @@ export default function HomeSlide(props: IHomeSlideProps) {
           modules={[FreeMode, Autoplay, Thumbs]}
           className="myTitleHomeSlide"
         >
-          {render.map((item, index) => (
+          {bookRender.map((item, index) => (
             <SwiperSlide key={index}>
-              <button className="font-medium md:h-[40px] lg:h-max overflow-hidden md:text-sm lg:text-xs text-xs">{item.title}</button>
+              <p className="font-medium md:h-[40px] cursor-pointer  p-2 w-full truncate text-center lg:h-max overflow-hidden md:text-sm lg:text-xs text-xs">{item.name.split(" ", 2).join(" ")}</p>
             </SwiperSlide>
           ))}
         </Swiper>
