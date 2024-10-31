@@ -28,7 +28,7 @@ export default async function ListNewestChapter() {
                 src={`${DOMAIN}/api/books/${book.images[0]}`}
                 alt=""
               />
-              {book.status === 1 && (
+              {book.status === 2 && (
                 <span className="bg-[#22C55E] absolute top-1  -left-2 text-[5px] w-8  font-medium -rotate-[45deg] flex justify-center items-center h-2 text-white   ">
                   FULL
                 </span>

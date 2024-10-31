@@ -2,6 +2,10 @@
 export interface ILayout {
   children: React.ReactNode;
 }
+export interface PropParams  {
+  params: Promise<{ slug: string }>
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
 export interface IFilter {
   search: string;
   tag: string;

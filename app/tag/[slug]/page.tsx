@@ -4,17 +4,12 @@ import { getOneTag } from '@/api/tags';
 import CardTypeStory from '@/components/Card/CardTypeStory';
 import ButtonChangePage from '@/components/OptionComponent/ButtonChangePage';
 import ButtonShowCategory from '@/components/OptionComponent/ButtonShowCategory';
-import { IBook, IFilter, ITag } from '@/interfaces';
+import { IBook, IFilter, ITag, PropParams } from '@/interfaces';
 import { MainLayout } from '@/layouts';
 import { Metadata } from 'next';
 
-type Props = {
-    params: Promise<{ slug: string }>
-    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
-
 export async function generateMetadata(
-    { params }: Props,
+    { params }: PropParams,
 ): Promise<Metadata> {
     const slug = (await params).slug;
     const id = slug.split("-").pop()?.split(".")[0];
@@ -30,7 +25,7 @@ export async function generateMetadata(
         },
     };
 }
-export default async function page({ params }: { params: { slug: string } }) {
+export default async function page({ params }: PropParams) {
     const slug = (await params).slug;
     const id = slug.split("-").pop()?.split(".")[0];
     const tag: ITag = await getOneTag(id as string);

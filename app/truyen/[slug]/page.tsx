@@ -5,17 +5,12 @@ import ListCommentDetailItem from "@/components/List/ListCommentDetailItem";
 import ListNewestStory from "@/components/List/ListNewestStory";
 import ListStorySameAuthor from "@/components/List/ListStorySameAuthor";
 import OptionInfoDetail from "@/components/OptionComponent/OptionInfoDetail";
-import { IFilter } from "@/interfaces";
+import { IFilter, PropParams } from "@/interfaces";
 import { MainLayout } from "@/layouts";
 import { Metadata, ResolvingMetadata } from "next";
 
-type Props = {
-  params: Promise<{ slug: string }>
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
-}
-
 export async function generateMetadata(
-  { params }: Props,
+  { params }: PropParams,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
   const slug = (await params).slug;
@@ -32,15 +27,19 @@ export async function generateMetadata(
       type: "website",
       images: [
         `${process.env.NEXT_PUBLIC_API_URL}/api/books/${book?.images[0]}`,
-      ]
+      ],
     },
   };
 }
-export default async function page({ params }: { params: { slug: string } }) {
+export default async function page({ params }: PropParams) {
   const slug = (await params).slug;
   const id = slug.split("-").pop()?.split(".")[0];
-  const bookData = await getOneBook(id as string)
-  const bookSameAuthor = await getListBooksNoTotal({ author: bookData?.authors[0]._id, page: 1, limit: 10 } as IFilter)
+  const bookData = await getOneBook(id as string);
+  const bookSameAuthor = await getListBooksNoTotal({
+    author: bookData?.authors[0]._id,
+    page: 1,
+    limit: 10,
+  } as IFilter);
   return (
     <MainLayout>
       <main className="p-2 w-full overflow-hidden lg:max-w-[1140px] m-auto">
@@ -57,7 +56,10 @@ export default async function page({ params }: { params: { slug: string } }) {
             </div>
           </div>
           <div className="flex flex-col gap-4 ">
-            <ListStorySameAuthor books={bookSameAuthor} author={bookData?.authors[0]} />
+            <ListStorySameAuthor
+              books={bookSameAuthor}
+              author={bookData?.authors[0]}
+            />
             <ListNewestStory />
           </div>
         </div>

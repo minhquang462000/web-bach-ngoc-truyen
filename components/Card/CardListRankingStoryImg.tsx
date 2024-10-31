@@ -23,7 +23,10 @@ export default function CardListRankingStoryImg({ book }: { book: IBook }) {
           <p>Tác giả:{book.authors[0].name}</p>
           <ul className="flex items-center max-h-[50px] overflow-hidden  flex-wrap gap-1 mt-2">
             {book.categories.map((category, index) => (
-              <li key={index} className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
+              <li
+                key={index}
+                className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]"
+              >
                 <Link
                   href={`/the-loai/${convertToSlug(category.name)}-${
                     category._id
@@ -33,7 +36,6 @@ export default function CardListRankingStoryImg({ book }: { book: IBook }) {
                 </Link>
               </li>
             ))}
-            
           </ul>
         </div>
       </div>
@@ -54,9 +56,11 @@ export default function CardListRankingStoryImg({ book }: { book: IBook }) {
               src={`${DOMAIN}/api/books/${book.images[0]}`}
               alt=""
             />
-            <span className="bg-[#22C55E] absolute top-1 tex-sm -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
-              FULL
-            </span>
+            {book.status === 2 && (
+              <span className="bg-[#22C55E] absolute top-1 tex-sm -left-4 font-medium -rotate-[40deg] text-center text-white  px-5 ">
+                FULL
+              </span>
+            )}
           </div>
         </BookCover>
       </Link>

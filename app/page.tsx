@@ -32,7 +32,7 @@ export default async function Home() {
     page: 1,
     limit: 4,
     status: 2,
-  } as IFilter);  
+  } as IFilter);
   return (
     <MainLayout>
       <HeaderSelect />

@@ -7,7 +7,7 @@ import bookMark from "../../public/images/bookmark.6b699b4c.png";
 import { CiLogin } from "react-icons/ci";
 import { FiUserPlus } from "react-icons/fi";
 import MyBookmark from "../List/MyBookmark";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import PopupAuthHeaderMobile from "../PopUp/PopupAuthHeaderMobile";
 import PopupFuncHeaderMobile from "../PopUp/PopupFuncHeaderMobile";
 export interface IHomeHeaderProps {}
@@ -16,6 +16,19 @@ export default function HomeHeader(props: IHomeHeaderProps) {
   const [openPopupMyStory, setOpenPopupMyStory] = useState(false);
   const [isShowPopup, setIsShowPopup] = useState(false);
   const wrapperRefMyStory = useRef<any>(null);
+  const togglePopup = useCallback(() => {
+    if (!openPopupMyStory) {
+      setIsShowPopup(true);
+      setTimeout(() => {
+        setOpenPopupMyStory(true);
+      }, 100);
+    } else {
+      setOpenPopupMyStory(false);
+      setTimeout(() => {
+        setIsShowPopup(false);
+      }, 500);
+    }
+  }, [openPopupMyStory]);
   useEffect(() => {
     function handleClickOutside(event: any) {
       if (
@@ -30,20 +43,8 @@ export default function HomeHeader(props: IHomeHeaderProps) {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [wrapperRefMyStory, openPopupMyStory]);
-  const togglePopup = () => {
-    if (!openPopupMyStory) {
-      setIsShowPopup(true);
-      setTimeout(() => {
-        setOpenPopupMyStory(true);
-      }, 100);
-    } else {
-      setOpenPopupMyStory(false);
-      setTimeout(() => {
-        setIsShowPopup(false);
-      }, 500);
-    }
-  };
+  }, [wrapperRefMyStory, openPopupMyStory, togglePopup]);
+
   return (
     <header className="max-w-full sticky bg-white p-3 shadow-md z-50 top-0  mx-auto">
       <section className="lg:max-w-[1140px]  md:max-w-[705px] h-full w-full  text-xs   m-auto">

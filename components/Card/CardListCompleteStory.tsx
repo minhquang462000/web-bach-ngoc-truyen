@@ -35,7 +35,7 @@ export default function CardListCompleteStory({ book }: { book: IBook }) {
                 src={`${DOMAIN}/api/books/${book.images[0]}`}
                 alt=""
               />
-              {book.status === 1 && (
+              {book.status === 2 && (
                 <span className="bg-[#22C55E] absolute top-1 text-xs -left-4 font-medium -rotate-[50deg] text-center text-white  px-5 ">
                   FULL
                 </span>

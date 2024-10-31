@@ -29,7 +29,7 @@ export default function CardListAuthorStoryHome({ book }: { book: IBook }) {
         </Link>
         <ul className="flex items-center text-xs h-[25px] max-w-[150px] overflow-hidden  gap-1 flex-wrap ">
           {book.categories.map((category, index) => (
-            <li className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
+            <li key={index} className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]">
               <Link
                 href={`/the-loai/${convertToSlug(category.name)}-${category._id
                   }.html`}
