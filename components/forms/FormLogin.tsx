@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Image from "next/image";
 import logoMain from "@/public/images/logo.49128792.png";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
@@ -9,13 +9,17 @@ import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { setTokenCookie } from "@/api/login";
-export interface IFormLoginProps {
-}
+import { useGetEmailForLogin } from "@/stores/getEmailLocal";
+export interface IFormLoginProps {}
 
 export default function FormLogin(props: IFormLoginProps) {
+  const { email } = useGetEmailForLogin();
   const [showPassword, setShowPassword] = useState(false);
-  const [dataLogin, setDataLogin] = useState({ email: "", password: "" })
-  const router = useRouter()
+  const [dataLogin, setDataLogin] = useState({
+    account: email || "",
+    password: "",
+  });
+  const router = useRouter();
   const [showConfirmAccount, setShowConfirmAccount] = useState(false);
   const wrapperRefConfirmAccount = useRef<any>(null);
   useEffect(() => {
@@ -33,11 +37,14 @@ export default function FormLogin(props: IFormLoginProps) {
     };
   }, [wrapperRefConfirmAccount, showConfirmAccount]);
   const handleLogin = async () => {
-    if (dataLogin.email == "" || dataLogin.password == "") {
+    if (dataLogin.account == "" || dataLogin.password == "") {
       toast.warning("Vui lòng điền đầy đủ điền kiện");
     } else {
       try {
-        const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/login`, dataLogin);
+        const res = await axios.post(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/login`,
+          dataLogin
+        );
         if (res.data.account.status === 0) {
           toast.error("Tài khoản của bạn đang bị khoá");
           return;
@@ -49,28 +56,36 @@ export default function FormLogin(props: IFormLoginProps) {
         toast.error(err.response.data.error);
       }
     }
-  }
+  };
   return (
-    <section className='relative'>
+    <section className="relative">
       <ToastContainer autoClose={1500} />
       <div className="m-auto w-full md:max-w-[570px] flex gap-7 p-5 px-10 shadow-gray-300 relative top-[6rem] lg:top-[9rem] items-center flex-col  bg-[#ffffff] bg-opacity-50 rounded-2xl h-max shadow-md lg:shadow-lg">
         <div className="flex flex-col gap-2 items-center mb-5">
-          <Link href={"/"}>  <Image src={logoMain} alt={"imgLogo"} width={160} /></Link>
+          <Link href={"/"}>
+            {" "}
+            <Image src={logoMain} alt={"imgLogo"} width={160} />
+          </Link>
           <p className="text-2xl text-[#128c7e]  font-medium">Đăng nhập</p>
         </div>
         <div className="w-full relative p-2 px-3 h-max  border-[#128c7e] border-2 rounded-md">
           <input
             className="bg-transparent w-full outline-none "
             type="text"
-            onChange={(e) => setDataLogin({ ...dataLogin, email: e.target.value })}
-            placeholder="Vui lòng nhập  email"
+            value={dataLogin.account}
+            onChange={(e) =>
+              setDataLogin({ ...dataLogin, account: e.target.value })
+            }
+            placeholder="Vui lòng nhập  email hoặc tên đăng nhập"
           />
         </div>
         <div className="w-full relative p-2 px-3 flex justify-between items-center  h-max  border-[#128c7e] border-2  rounded-md">
           <input
             className="bg-transparent w-full  outline-none  "
             type={showPassword ? "text" : "password"}
-            onChange={(e) => setDataLogin({ ...dataLogin, password: e.target.value })}
+            onChange={(e) =>
+              setDataLogin({ ...dataLogin, password: e.target.value })
+            }
             placeholder="Vui lòng nhập mật khẩu"
           />
           <button
@@ -84,7 +99,10 @@ export default function FormLogin(props: IFormLoginProps) {
             )}
           </button>
         </div>
-        <button onClick={handleLogin} className="mx-auto px-6 border-[#128c7e] text-[#128c7e] hover:bg-[#128c7e] hover:text-white border w-max  p-2 rounded-md">
+        <button
+          onClick={handleLogin}
+          className="mx-auto px-6 border-[#128c7e] text-[#128c7e] hover:bg-[#128c7e] hover:text-white border w-max  p-2 rounded-md"
+        >
           Đăng nhập
         </button>
         <p>
@@ -104,8 +122,9 @@ export default function FormLogin(props: IFormLoginProps) {
         </p>
       </div>
       <div
-        className={`bg-[#5050509a] text-black text-center absolute top-0 w-full h-screen p-2 ${!showConfirmAccount && "hidden"
-          }`}
+        className={`bg-[#5050509a] text-black text-center absolute top-0 w-full h-screen p-2 ${
+          !showConfirmAccount && "hidden"
+        }`}
       >
         <div
           ref={wrapperRefConfirmAccount}

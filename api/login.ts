@@ -8,7 +8,7 @@ export const setTokenCookie = (token:string,_id:string) => {
   Cookies.set('token', token, { expires: 1 }); // 'expires' là thời gian sống của cookie (ví dụ: 7 ngày)
   Cookies.set('user', _id, { expires: 1 });
   };
-  export const getTokenCookie = () => {
-    return Cookies.get('token')
+  export const getAccountCookie = () => {
+    return Cookies.get('user');
   }
 

@@ -10,6 +10,10 @@ import MyBookmark from "../List/MyBookmark";
 import { useCallback, useEffect, useRef, useState } from "react";
 import PopupAuthHeaderMobile from "../PopUp/PopupAuthHeaderMobile";
 import PopupFuncHeaderMobile from "../PopUp/PopupFuncHeaderMobile";
+import { getAccountCookie } from "@/api/login";
+import axios from "axios";
+import { FaRegBell } from "react-icons/fa";
+import defaultAvt from "@/public/images/default-avatar.jpg";
 export interface IHomeHeaderProps {}
 
 export default function HomeHeader(props: IHomeHeaderProps) {
@@ -44,6 +48,22 @@ export default function HomeHeader(props: IHomeHeaderProps) {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [wrapperRefMyStory, openPopupMyStory, togglePopup]);
+  const account = getAccountCookie();
+  const [dataAccount, setDataAccount] = useState<any>(null);
+  if (account) {
+    useEffect(() => {
+      const getAccount = async () => {
+        try {
+          const res = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/${account}`
+          );
+          setDataAccount(res.data);
+        } catch (e) {}
+      };
+      getAccount();
+    }, [account]);
+  }
+  console.log(dataAccount);
 
   return (
     <header className="max-w-full sticky bg-white p-3 shadow-md z-50 top-0  mx-auto">
@@ -62,7 +82,13 @@ export default function HomeHeader(props: IHomeHeaderProps) {
                 !openPopupMyStory ? "hidden  " : "block"
               } top-0`}
             />
-            <li ref={wrapperRefMyStory} className="">
+            <li className={`${dataAccount?.email ? "block" : "hidden"} mr-2`}>
+              <FaRegBell color="#128c7e" size={25} />
+            </li>
+            <li
+              ref={wrapperRefMyStory}
+              className={`${dataAccount?.email && "md:px-4"}`}
+            >
               {" "}
               <Image
                 onClick={togglePopup}
@@ -76,9 +102,12 @@ export default function HomeHeader(props: IHomeHeaderProps) {
                 isShowPopup={isShowPopup}
               />
             </li>
-            <PopupAuthHeaderMobile />
+            <PopupAuthHeaderMobile dataAccount={dataAccount} />
             <PopupFuncHeaderMobile />
-            <li className="hidden md:block">
+
+            <li
+              className={`hidden  ${dataAccount?.email ? "block" : "md:block"}`}
+            >
               {" "}
               <Link
                 href={"/dang-nhap"}
@@ -87,7 +116,11 @@ export default function HomeHeader(props: IHomeHeaderProps) {
                 <CiLogin /> Đăng nhập
               </Link>
             </li>
-            <li className="hidden md:block">
+            <li
+              className={`hidden  ${
+                dataAccount?.email ? "hidden" : "md:block"
+              }`}
+            >
               {" "}
               <Link
                 href={"/dang-ky"}

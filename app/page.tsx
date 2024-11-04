@@ -14,7 +14,6 @@ import ListAuthorStory from "@/components/List/ListAuthorStory";
 import ListCompleteStory from "@/components/List/ListCompleteStory";
 import { getListBooksNoTotal } from "@/api/books";
 import { IBook, IFilter } from "@/interfaces";
-import { getListCategory } from "@/api/category";
 export default async function Home() {
   const listBookHotWeek: IBook[] = await getListBooksNoTotal({
     page: 1,
