@@ -1,5 +1,6 @@
 'use client';
 import { ICategory } from "@/interfaces";
+import { convertToSlug } from "@/utils/converToSlug";
 import axios from "axios";
 import Link from "next/link";
 import { useState, useEffect } from "react";
@@ -33,7 +34,7 @@ export default function ListHomeCategory(props: IListHomeCategoryProps) {
     >
       {listAllCategory?.map((category, i) => (
         <li key={i} className="m-auto">
-          <Link href={`/the-loai/ten-the-loai-${i + 1}`}>
+          <Link href={`/the-loai/${convertToSlug(category.name)}-${category._id}.html`}>
             <p className="hover:bg-[#128c7e] w-[100px] lg:max-w-[200px] lg:w-max text-center overflow-hidden lg:overflow-auto truncate   rounded-md p-2 hover:text-white cursor-pointer">
               {category.name}
             </p>

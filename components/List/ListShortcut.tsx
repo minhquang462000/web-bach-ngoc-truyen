@@ -13,13 +13,13 @@ export default function ListShortcut(props: IListCategoryProps) {
   return (
     <ul className="w-full  md:grid-cols-6 lg:grid-cols-3  shadow-md lg:gap-y-1 shadow-gray-400 rounded-sm h-full lg:gap-x-0 border  p-3 lg:px-1 grid grid-cols-3">
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-2  rounded-xl">
-        <Link href={"/tag/tac-dai-than-671f3ba169334a591c73199b.html"}>
+        <Link href={"/tag/tac-dai-than-671f3ba169334a591c73199b.html?page=1"}>
           {" "}
           <Image width={75} src={imgTacDaiThan} alt={"imgLogo"} />
         </Link>
       </li>
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-2  rounded-xl">
-        <Link href={"top-ngoc-phieu"}>
+        <Link href={"top-ngoc-phieu?page=1"}>
           {" "}
           <Image width={75} src={imgTopNgocPhieu} alt={"imgLogo"} />
         </Link>
@@ -31,19 +31,19 @@ export default function ListShortcut(props: IListCategoryProps) {
         </Link>
       </li>
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-2  rounded-xl">
-        <Link href={"/tag/doc-quyen-app-truyen-671f3bb569334a591c7319a0.html"}>
+        <Link href={"/tag/doc-quyen-app-truyen-671f3bb569334a591c7319a0.html?page=1"}>
           {" "}
           <Image width={75} src={imgDocQuyen} alt={"imgLogo"} />
         </Link>
       </li>
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-2  rounded-xl">
-        <Link href={"truyen-hot"}>
+        <Link href={"truyen-hot?page=1"}>
           {" "}
           <Image width={75} src={imgTruyenHot} alt={"imgLogo"} />
         </Link>
       </li>
       <li className="cursor-pointer flex items-center justify-center text-transparent hover:shadow-lg hover:shadow-gray-600  lg:p-1 p-2  rounded-xl">
-        <Link href={"yeu-thich"}>
+        <Link href={"yeu-thich?page=1"}>
           <Image width={75} src={imgYeuThich} alt={"imgLogo"} />
         </Link>
       </li>

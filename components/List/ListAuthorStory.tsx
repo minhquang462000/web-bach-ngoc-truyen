@@ -13,13 +13,14 @@ export default async function ListAuthorStory() {
     <div className=" w-full md:grid-cols-2 grid lg:grid-cols-3 gap-2 bg-transparent">
       <div className="flex shadow p-2 md:col-span-2  items-center bg-white rounded-md justify-between lg:col-span-3">
         {" "}
-        <Link href="/tac-gia/viet">
+        <h3 className="font-semibold text-2xl">Tác giả Việt</h3>
+        <Link href="/tac-gia-viet?page=1">
           {" "}
-          <h3 className="font-semibold text-2xl">Tác giả Việt</h3>
+          <button className="flex  items-center hover:underline gap-1 text-[#128c7e] text-sm">
+            Xem thêm <FaLongArrowAltRight />
+          </button>
         </Link>
-        <button className="flex  items-center hover:underline gap-1 text-[#128c7e] text-sm">
-          Xem thêm <FaLongArrowAltRight />
-        </button>
+
       </div>
       {listBookByAuthor?.map((book, index) => (
         <CardAuthorStory key={index} book={book} />

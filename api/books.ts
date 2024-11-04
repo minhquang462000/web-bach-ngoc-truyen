@@ -38,9 +38,9 @@ export async function getListBooks(query: IFilter) {
   try {
     const res = await axios.get(`${API_URL}/api/client/books`, {
       params,
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
     return {
       data: res.data,

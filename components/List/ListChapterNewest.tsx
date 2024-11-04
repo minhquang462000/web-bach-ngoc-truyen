@@ -13,7 +13,7 @@ export default async function ListNewestChapter() {
   } as IFilter);
   return (
     <ul className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
-      <TitleChangePage title="Chương mới cập nhật" url="/truyen-moi-nhat" />
+      <TitleChangePage title="Chương mới cập nhật" url="/chuong-moi-nhat?page=1" />
       {bookChapterNewest?.map((book, index) => (
         <li
           key={index}

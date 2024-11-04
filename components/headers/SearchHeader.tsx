@@ -12,7 +12,7 @@ export default function SearchHeader() {
   const router = useRouter();
   const handleSearch = () => {
     if (keyWord.length > 2) {
-      router.push(`/tim-kiem?q=${convertToSlug(keyWord)}`);
+      router.push(`/tim-kiem/${convertToSlug(keyWord)}?page=1`);
     }
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {

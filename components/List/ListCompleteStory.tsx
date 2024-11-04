@@ -18,7 +18,7 @@ export default async function ListCompleteStory(
       <nav className="flex  text-[#128c7e]  items-center lg:col-span-3  justify-between md:col-span-2">
         {" "}
         <h3 className="font-semibold text-2xl">Mới Hoàn Thành</h3>
-        <Link href={"/moi-hoan-thanh"}>
+        <Link href={"/moi-hoan-thanh?page=1"}>
           <button className="flex  items-center hover:underline gap-1  text-sm">
             Xem thêm <FaLongArrowAltRight />
           </button>

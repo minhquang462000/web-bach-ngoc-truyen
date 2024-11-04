@@ -4,6 +4,7 @@ import { SlCloudUpload } from "react-icons/sl";
 import { VscThreeBars } from "react-icons/vsc";
 import ListHomeCategory from "../List/ListHomeCategory";
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export default function HeaderSelect() {
   const [openListCategory, setOpenListCategory] = useState<boolean>(false);
@@ -45,16 +46,18 @@ export default function HeaderSelect() {
             <VscThreeBars />
             Thể loại
           </li>
-          <li
-            className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
-          >
-            Hoàn thành
-          </li>
-          <li
-            className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
-          >
-            Miễn phí
-          </li>
+          <Link href={"/moi-hoan-thanh?page=1"}>
+            <li
+              className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
+            >
+              Hoàn thành
+            </li></Link>
+          <Link href={'/tag/mien-phi-671f3be769334a591c7319aa.html'}>
+            <li
+              className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
+            >
+              Miễn phí
+            </li></Link>
           <li
             className={`flex items-center cursor-pointer hover:bg-[#141414] w-1/4 justify-center md:w-max  py-3 md:px-4  gap-1`}
           >

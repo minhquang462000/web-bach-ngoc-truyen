@@ -12,7 +12,7 @@ export default async function ListNewestStory() {
   } as IFilter);
   return (
     <ul className=" w-full shadow-sm shadow-gray-400 border rounded-md group  gap-x-3 gap-y-2 bg-transparent">
-      <TitleChangePage title="Truyện mới nhất" url="/truyen-moi-nhat" />
+      <TitleChangePage title="Truyện mới nhất" url="/truyen-moi-nhat?page=1" />
       {bookNewest?.map((book, index) => (
         <li
           key={index}

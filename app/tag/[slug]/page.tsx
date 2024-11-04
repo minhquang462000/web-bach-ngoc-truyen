@@ -1,7 +1,8 @@
 
-import { getListBooksNoTotal } from '@/api/books';
+import { getListBooks, getListBooksNoTotal } from '@/api/books';
 import { getOneTag } from '@/api/tags';
 import CardTypeStory from '@/components/Card/CardTypeStory';
+import NoData from '@/components/NoData';
 import ButtonChangePage from '@/components/OptionComponent/ButtonChangePage';
 import ButtonShowCategory from '@/components/OptionComponent/ButtonShowCategory';
 import { IBook, IFilter, ITag, PropParams } from '@/interfaces';
@@ -29,7 +30,9 @@ export default async function page({ params }: PropParams) {
     const slug = (await params).slug;
     const id = slug.split("-").pop()?.split(".")[0];
     const tag: ITag = await getOneTag(id as string);
-    const bookSameTag = await getListBooksNoTotal({ tag: id, page: 0, limit: 12 } as IFilter)
+    const res = await getListBooks({ tag: id, page: 0, limit: 12 } as IFilter)
+    const bookSameTag = res?.data
+    const total = res?.total
     const title = tag?.name === "Truyện Hay" ? tag?.name : `Truyện ${tag?.name}`
     return (
         <MainLayout>
@@ -40,15 +43,15 @@ export default async function page({ params }: PropParams) {
                 </div>
                 <nav className='p-2 bg-white '>
                     <b className='mr-1'>Mô tả thể loại :</b>
-                    <span>Truyện nói về ẩm thực ,sở thích ăn uống, quá trình nấu nướng.</span>
+                    <span>{tag?.description}</span>
                 </nav>
-                <div className='grid grid-cols-2  lg:grid-cols-3 bg-transparent gap-2 lg:gap-4'>
+                <div className={`grid grid-cols-2  md:grid-cols-3  bg-transparent gap-2 ${total === 0 && "hidden"}`}>
                     {bookSameTag?.map((book: IBook, index: number) => (
                         <CardTypeStory key={index} book={book} />
                     ))}
 
                 </div>
-                <ButtonChangePage />
+                {total > 0 ? <ButtonChangePage /> : <NoData />}
             </main>
         </MainLayout>
     );

@@ -81,17 +81,17 @@ export default async function Home() {
           <ListRankingStory
             books={listBookHotMonth}
             title="Yêu Thích Tháng"
-            urlString="/yeu-thich-thang"
+            urlString="/yeu-thich-thang?page=1"
           />
           <ListRankingStory
             books={listBookHot}
             title="Truyện Hot"
-            urlString="/truyen-hot"
+            urlString="/truyen-hot?page=1"
           />
           <ListRankingStory
             books={listBookHotWeek}
             title="Thịnh Hành Tuần"
-            urlString="/thinh-hanh-tuan"
+            urlString="/thinh-hanh-tuan?page=1"
           />
         </section>
         <ListAuthorStory />

@@ -31,14 +31,15 @@ export default function ButtonShowCategory(props: IButtonShowCategoryProps) {
         >
           Thể loại
         </li>
-        <Link href={"/truyen-hoan-thanh"}>
+        <Link href={"/moi-hoan-thanh?page=1"}>
           <li className="p-3 cursor-pointer  px-5 hover:bg-[#0e6d62]">
             Hoàn thành
           </li>
         </Link>
-        <li className="p-3 cursor-pointer  px-5 hover:bg-[#0e6d62]">
-          Miễn phí
-        </li>
+        <Link href={'/tag/mien-phi-671f3be769334a591c7319aa.html'}>
+          <li className="p-3 cursor-pointer  px-5 hover:bg-[#0e6d62]">
+            Miễn phí
+          </li></Link>
         <li className="p-3 cursor-pointer  px-5 hover:bg-[#0e6d62]">
           Diễn đàn
         </li>

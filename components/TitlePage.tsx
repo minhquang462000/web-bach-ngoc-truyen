@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import ButtonShowCategory from "./OptionComponent/ButtonShowCategory";
 
-export interface ITitlePageProps {}
+export interface ITitlePageProps { }
 
 export default function TitlePage(props: ITitlePageProps) {
   const pathName = usePathname();
@@ -24,10 +24,19 @@ export default function TitlePage(props: ITitlePageProps) {
         setTitle("Truyện Hot");
         break;
       case "/truyen-moi-nhat":
-        setTitle("Truyện Mới Nhat");
+        setTitle("Truyện Mới Nhất");
         break;
-      case "/tag":
-        setTitle("Truyện Tag");
+      case "/moi-hoan-thanh":
+        setTitle("Truyện Mới Hoàn Thành");
+        break;
+      case "/mien-phi":
+        setTitle("Truyện Miễn Phí");
+        break;
+      case "/chuong-moi-nhat":
+        setTitle("Chương Mới Nhất");
+        break;
+      case "/tac-gia-viet":
+        setTitle("Tác giả Việt");
         break;
       case "/trang-chu":
     }

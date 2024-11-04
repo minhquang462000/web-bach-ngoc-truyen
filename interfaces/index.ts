@@ -3,7 +3,7 @@ export interface ILayout {
   children: React.ReactNode;
 }
 export interface PropParams  {
-  params: Promise<{ slug: string }>
+  params: Promise<{ slug: string,id: string }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 export interface IFilter {
