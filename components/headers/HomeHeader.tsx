@@ -50,21 +50,17 @@ export default function HomeHeader(props: IHomeHeaderProps) {
   }, [wrapperRefMyStory, openPopupMyStory, togglePopup]);
   const account = getAccountCookie();
   const [dataAccount, setDataAccount] = useState<any>(null);
-  if (account) {
-    useEffect(() => {
-      const getAccount = async () => {
-        try {
-          const res = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/${account}`
-          );
-          setDataAccount(res.data);
-        } catch (e) {}
-      };
-      getAccount();
-    }, [account]);
-  }
-  console.log(dataAccount);
-
+  useEffect(() => {
+    const getAccount = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/${account}`
+        );
+        setDataAccount(res.data);
+      } catch (e) {}
+    };
+    getAccount();
+  }, [account]);
   return (
     <header className="max-w-full sticky bg-white p-3 shadow-md z-50 top-0  mx-auto">
       <section className="lg:max-w-[1140px]  md:max-w-[705px] h-full w-full  text-xs   m-auto">
