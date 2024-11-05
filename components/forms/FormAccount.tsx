@@ -8,15 +8,19 @@ import Link from "next/link";
 export interface IAccountProps {
   account: IUser;
 }
-
+const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function FormAccount({ account }: IAccountProps) {
   return (
     <div className="p-5 w-[400px] md:w-[600px] font-medium">
       <div className="flex w-full ">
         <Image
-          src={account.avatar ? account.avatar : defaultAvt}
+          src={
+            account.avatar
+              ? `${DOMAIN}/api/avatars/${account.avatar}`
+              : defaultAvt
+          }
           width={50}
-          className="rounded-full w-[100px] h-[100px] mr-4"
+          className="rounded-full w-[100px] object-cover object-top h-[100px] mr-4"
           height={50}
           alt="avatar"
         />
@@ -34,7 +38,7 @@ export default function FormAccount({ account }: IAccountProps) {
         </ul>
       </div>
       <ul className="grid grid-cols-2 mt-4  text-sm gap-3 w-full text-center">
-        <Link href={`/trang-ca-nhan/${account._id}`}>
+        <Link href={`/trang-ca-nhan/${account.name}`}>
           {" "}
           <li className="border col-span-1 w-full hover:bg-[#128c7e] hover:text-white border-[#128c7e] rounded-xl p-2 py-1">
             Trang cá nhân
@@ -43,7 +47,7 @@ export default function FormAccount({ account }: IAccountProps) {
         <li className="border col-span-1 cursor-pointer w-full hover:bg-[#128c7e] hover:text-white border-[#128c7e] rounded-xl p-2 py-1">
           Thêm cơ thạch
         </li>
-        <Link href={`/trang-ca-nhan/${account._id}`}>
+        <Link href={`/chi-tiet-tai-khoan//${account.name}`}>
           {" "}
           <li className="border col-span-1 cursor-pointer w-full hover:bg-[#128c7e] hover:text-white border-[#128c7e] rounded-xl p-2 py-1">
             Chi tiết tài khoản
