@@ -1,5 +1,4 @@
 "use client";
-
 import { ICategory } from "@/interfaces";
 import { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
