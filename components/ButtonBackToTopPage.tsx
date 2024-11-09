@@ -6,8 +6,6 @@ export interface IButtonBackToTopPageProps { }
 
 export default function ButtonBackToTopPage(props: IButtonBackToTopPageProps) {
     const [isVisible, setIsVisible] = useState(false);
-
-    // Kiểm tra vị trí cuộn trang
     const toggleVisibility = () => {
         if (window.scrollY > 20) {
             setIsVisible(true);
@@ -15,8 +13,6 @@ export default function ButtonBackToTopPage(props: IButtonBackToTopPageProps) {
             setIsVisible(false);
         }
     };
-
-    // Cuộn lên đầu trang với hiệu ứng mượt mà
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
