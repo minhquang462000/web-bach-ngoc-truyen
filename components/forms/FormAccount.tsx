@@ -19,9 +19,9 @@ export default function FormAccount({ account }: IAccountProps) {
               ? `${DOMAIN}/api/avatars/${account.avatar}`
               : defaultAvt
           }
-          width={50}
+          width={200}
           className="rounded-full w-[100px] object-cover object-top h-[100px] mr-4"
-          height={50}
+          height={200}
           alt="avatar"
         />
         <ul className="text-black w-2/3 text-xs">

@@ -99,9 +99,9 @@ export default function HeaderPageAccount({ account }: { account: IUser }) {
               ? `${DOMAIN}/api/avatars/${account.avatar}`
               : dataAccount.avatar
           }
-          width={50}
+          width={200}
           className="rounded-full mt-3  object-cover object-top w-[150px] h-[150px] mr-4 border-white border-[5px] shadow-sm"
-          height={50}
+          height={200}
           alt="avatar"
         />
         <input

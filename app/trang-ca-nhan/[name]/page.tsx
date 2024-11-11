@@ -29,9 +29,9 @@ export default async function page({ params }: PropParams) {
                     ? `${DOMAIN}/api/avatars/${account.avatar}`
                     : defaultAvt
                 }
-                width={50}
+                width={200}
                 className="rounded-full object-cover object-top w-[140px] h-[140px] mr-4 border-white border-[5px] shadow-sm"
-                height={50}
+                height={200}
                 alt="avatar"
               />
               <p className="text-xl text-center my-2">{account.name}</p>
