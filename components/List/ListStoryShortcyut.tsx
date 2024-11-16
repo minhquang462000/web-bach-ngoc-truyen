@@ -1,15 +1,10 @@
-import * as React from "react";
+
 import { FaLongArrowAltRight } from "react-icons/fa";
 import CardHomeShortcut from "../Card/CardMainHome";
 import Link from "next/link";
 import { IBook, IFilter } from "@/interfaces";
-import { getListBooksNoTotal } from "@/api/books";
 
-export default async function ListStoryShortcut() {
-  const books: IBook[] = await getListBooksNoTotal({
-    page: 1,
-    limit: 12,
-  } as IFilter);
+export default async function ListStoryShortcut({books}: {books: IBook[]}) {
   return (
     <div className=" w-full lg:col-span-3    gap-y-4 border rounded-lg  bg-transparent">
       <nav className="flex  p-2 items-center bg-white  justify-between col-span-2">

@@ -1,10 +1,11 @@
-import * as React from "react";
+"use client";
 import { BookCover } from "book-cover-3d";
 import Image from "next/image";
 export interface ICardRankingStoryImgProps {}
 import Link from "next/link";
 import { IBook, ICategory } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
+import { handleUpdateView } from "@/api/updateViews";
 const DOMAIN = process.env.NEXT_PUBLIC_API_URL;
 export default function CardListRankingStoryImg({ book }: { book: IBook }) {
   return (
@@ -16,16 +17,28 @@ export default function CardListRankingStoryImg({ book }: { book: IBook }) {
         <div className="flex flex-col gap-1">
           <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
             {" "}
-            <p className="text-sm font-bold w-[200px] overflow-hidden truncate">
+            <p
+              onClick={() => handleUpdateView(book._id)}
+              className="text-sm font-bold w-[200px] hover:text-[#128c7e]  overflow-hidden truncate"
+            >
               {book.name}
             </p>
           </Link>
-          <p>Tác giả:{book.authors[0].name}</p>
+          <Link
+            className="flex items-center gap-1"
+            href={`/tac-gia/${convertToSlug(book.authors[0].name)}-${
+              book.authors[0]._id
+            }.html`}
+          >
+            {" "}
+            Tác giả:
+            <p className="hover:text-[#128c7e]">{book.authors[0].name}</p>
+          </Link>
           <ul className="flex items-center max-h-[50px] overflow-hidden  flex-wrap gap-1 mt-2">
             {book.categories.map((category, index) => (
               <li
                 key={index}
-                className="p-[2px] cursor-pointer px-1 border rounded-full border-[#22C55E]"
+                className="p-[2px]  cursor-pointer px-1 hover:text-[#128c7e]  border rounded-full border-[#22C55E]"
               >
                 <Link
                   href={`/the-loai/${convertToSlug(category.name)}-${
@@ -48,7 +61,10 @@ export default function CardListRankingStoryImg({ book }: { book: IBook }) {
           height={95}
           pagesOffset={2}
         >
-          <div className="relative cursor-pointer overflow-hidden">
+          <div
+            onClick={() => handleUpdateView(book._id)}
+            className="relative cursor-pointer overflow-hidden"
+          >
             <Image
               width={200}
               height={300}

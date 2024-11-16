@@ -13,7 +13,7 @@ export async function generateMetadata(
   { params }: PropParams,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const slug = (await params).slug;
+  const slug = String((await params).slug);
   const id = slug.split("-").pop()?.split(".")[0];
   const book = await getOneBook(id as string);
 
@@ -32,7 +32,7 @@ export async function generateMetadata(
   };
 }
 export default async function page({ params }: PropParams) {
-  const slug = (await params).slug;
+  const slug = String((await params).slug);
   const id = slug.split("-").pop()?.split(".")[0];
   const bookData = await getOneBook(id as string);
   const bookSameAuthor = await getListBooksNoTotal({

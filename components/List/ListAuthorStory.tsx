@@ -16,7 +16,7 @@ export default async function ListAuthorStory() {
         <h3 className="font-semibold text-2xl">Tác giả Việt</h3>
         <Link href="/tac-gia-viet?page=1">
           {" "}
-          <button className="flex  items-center hover:underline gap-1 text-[#128c7e] text-sm">
+          <button className="flex  items-center hover:underline gap-1  text-[#128c7e] text-sm">
             Xem thêm <FaLongArrowAltRight />
           </button>
         </Link>

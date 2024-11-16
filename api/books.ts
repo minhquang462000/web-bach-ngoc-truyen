@@ -1,4 +1,4 @@
-import { IFilter } from "@/interfaces";
+import { IBook, IFilter } from "@/interfaces";
 import axios from "axios";
 import { cookies } from "next/headers";
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -7,21 +7,25 @@ export async function getListBooks(query: IFilter) {
   const limit = query.limit ? query.limit : 10;
   const search = query.search ? query.search : "";
   const tags = query.tag ? query.tag : "";
-  const category = query.category ? query.category : "";
+  const categories = query.categories ? query.categories : "";
   const author = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
   const contributor = query.contributor ? query.contributor : "";
+  const chapter = query.chapter ? query.chapter : "";
+  const sortKey = query.sortKey ? query.sortKey : "";
   ///---> Params
   const params: any = {
     page,
     limit,
     name: search,
     tags,
-    categories: category,
+    categories,
     authors: author,
     views,
-    status: query.status,
+    status: query.status || "",
     contributor,
+    chapter,
+    sortKey,
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -42,34 +46,37 @@ export async function getListBooks(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    return {
-      data: res.data,
-      total: res.headers["x-total-count"],
-    }
+    const data = res.data;
+    const total = res.headers["x-total-count"];
+    return { data, total };
   } catch (e) {
     return null;
   }
 }
+
 export async function getListBooksNoTotal(query: IFilter) {
   const page = query.page ? query.page : 1;
   const limit = query.limit ? query.limit : 10;
-  const search = query.search ? query.search : "";
+  const name = query.search ? query.search : "";
   const tags = query.tag ? query.tag : "";
-  const category = query.category ? query.category : "";
-  const author = query.author ? query.author : "";
+  const categories = query.categories ? query.categories : "";
+  const authors = query.author ? query.author : "";
   const views = query.views ? query.views : 0;
+  const sortKey = query.sortKey ? query.sortKey : "";
   const contributor = query.contributor ? query.contributor : "";
   ///---> Params
   const params: any = {
     page,
     limit,
-    name: search,
+    name,
     tags,
-    categories: category,
-    authors: author,
+    categories,
+    authors,
     views,
-    status: query.status,
+    status: query.status ? query.status : "",
     contributor,
+    sortKey,
+    chapter: query.chapter ? query.chapter : "",
   };
   const keys = Object.keys(params) as (keyof IFilter)[];
   keys.forEach((key) => {
@@ -90,7 +97,7 @@ export async function getListBooksNoTotal(query: IFilter) {
         Authorization: `Bearer ${token}`,
       },
     });
-    return res.data
+    return res.data;
   } catch (e) {
     return null;
   }

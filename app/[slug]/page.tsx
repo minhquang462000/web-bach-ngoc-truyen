@@ -2,18 +2,19 @@ import ButtonChangePage from "@/components/OptionComponent/ButtonChangePage";
 import ButtonShowCategory from "@/components/OptionComponent/ButtonShowCategory";
 import CardTypeStory from "@/components/Card/CardTypeStory";
 import { MainLayout } from "@/layouts";
-import { headers } from "next/headers";
-import TitlePage from "@/components/TitlePage";
 import { IBook, IFilter, PropParams } from "@/interfaces";
 import { getListBooks } from "@/api/books";
 import NoData from "@/components/NoData";
-export interface IpageProps { }
+import RootPagination from "@/components/OptionComponent/RootPagination";
+export interface IpageProps {}
 
-export default async function page({ params }: PropParams) {
+export default async function page({ params, searchParams }: PropParams) {
   const slug = (await params).slug;
+  const page = Number((await searchParams)?.page) || 1;
+  const limit = 12;
   let title = "";
-  let dataBooks = []
-  let total = 0
+  let dataBooks = [];
+  let total = 0;
   switch (slug) {
     case "top-ngoc-phieu":
       title = "Top Ngọc Phiếu";
@@ -34,10 +35,11 @@ export default async function page({ params }: PropParams) {
       title = "Yêu Thích Tháng";
       break;
     case "moi-hoan-thanh":
-      title = ("Truyện Mới Hoàn Thành");
-      const res = await getListBooks({ status: 2 } as IFilter);
-      dataBooks = res?.data;
-      total = res?.total;
+      title = "Truyện Mới Hoàn Thành";
+      const { data, total: totalData } =
+        (await getListBooks({ status: 2, page, limit } as IFilter)) || {};
+      dataBooks = data;
+      total = totalData;
       break;
     case "chuong-moi-nhat":
       title = "Chương Mới Nhất";
@@ -54,11 +56,18 @@ export default async function page({ params }: PropParams) {
           <h2 className="text-center font-bold text-2xl w-max p-3">{title}</h2>
           <ButtonShowCategory />
         </div>
-        <div className={`grid grid-cols-2  lg:grid-cols-3 bg-transparent gap-2 lg:gap-4 ${total === 0 && "hidden"}`}>
-          {dataBooks?.map((item: IBook) => <CardTypeStory key={item._id} book={item} />)}
+        <div
+          className={`grid grid-cols-2  lg:grid-cols-3 bg-transparent gap-2 lg:gap-4 ${
+            total === 0 && "hidden"
+          }`}
+        >
+          {dataBooks?.map((item: IBook) => (
+            <CardTypeStory key={item._id} book={item} />
+          ))}
         </div>
-        {total > 0 ? <ButtonChangePage /> : <NoData />}
+        {total === 0 && <NoData />}
+        <RootPagination page={page} limit={limit} total={total} />
       </main>
-    </MainLayout >
+    </MainLayout>
   );
 }

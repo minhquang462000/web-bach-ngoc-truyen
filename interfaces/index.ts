@@ -3,7 +3,7 @@ export interface ILayout {
   children: React.ReactNode;
 }
 export interface PropParams  {
-  params: Promise<{ slug: string,id: string ,name: string}>
+  params: Promise<{ [key: string]: string | string[] | undefined }>
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }
 export interface IFilter {
@@ -11,11 +11,13 @@ export interface IFilter {
   tag: string;
   page: number;
   limit: number;
-  category: string;
+  categories: string[];
   views: number;
   author: string;
-  status: number;
+  status: any;
   contributor: string;
+  sortKey:string
+  chapter:string
 }
 export interface ICategory {
   _id: string;
@@ -58,19 +60,21 @@ export interface IUser {
 }
 export interface IBook {
   _id: string;
+  totalChap: number;
   name: string;
   status: number;
   created_at: string;
-  updated_at: string;
+  updatedAt: string;
   categories: ICategory[];
   authors: IAuthor[];
   images: string[];
   tags: ITag[];
   banner: string;
   description: string;
-  view: number;
+  views: number;
   nominate: IUser;
   contributor: string;
+  createdAt: string;
 }
 export interface IChapter {
   _id: string;

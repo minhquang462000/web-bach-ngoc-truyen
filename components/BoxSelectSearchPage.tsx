@@ -1,5 +1,5 @@
 "use client";
-import { ICategory } from "@/interfaces";
+import { IBook, ICategory } from "@/interfaces";
 import { useState } from "react";
 import { IoMdCheckmark } from "react-icons/io";
 import { Select } from "antd";
@@ -7,44 +7,20 @@ import { usePathname, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 export interface IAppProps {
   categories: ICategory[];
+  query: { [key: string]: any };
+  setQuery: React.Dispatch<React.SetStateAction<{ [key: string]: any }>>;
+  isRelate: boolean;
+  setIsRelate: React.Dispatch<React.SetStateAction<boolean>>;
+  handleQuery: (queryType: string, value: any) => void;
 }
-export default function BoxSelectSearchPage({ categories }: IAppProps) {
-  const [isRelate, setIsRelate] = useState(false);
-
-  const router = useRouter();
-  const pathName = usePathname();
-  const [query, setQuery] = useState<{ [key: string]: any }>({
-    page: "",
-    limit: "",
-    categories: [],
-    status: "",
-    sort: "",
-  });
-  const buildUrl = (filters: Record<string, any>) => {
-    const query = new URLSearchParams();
-    Object.entries(filters).forEach(([key, value]) => {
-      if (Array.isArray(value)) {
-        value.forEach((val) => {
-          query.append(key, val);
-        });
-      } else if (value) {
-        query.set(key, value);
-      }
-    });
-    return `${pathName}?${query.toString()}`;
-  };
-  const handleQuery = (queryType: string, value: any) => {
-    if (isRelate) {
-      setQuery((prevQuery) => ({
-        ...prevQuery,
-        [queryType]: value,
-      }));
-      const finalUrl = buildUrl({ ...query, [queryType]: value });
-      router.push(finalUrl);
-    } else {
-      toast.warning("Hãy chọn tìm kiếm liên quan");
-    }
-  };
+export default function BoxSelectSearchPage({
+  categories,
+  query,
+  setQuery,
+  isRelate,
+  setIsRelate,
+  handleQuery,
+}: IAppProps) {
   return (
     <section className="w-full font-semibold text-sm px-3  py-4  ">
       <button

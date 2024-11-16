@@ -4,6 +4,7 @@ import CardRankingStoryImg from "../Card/CardListRankingStoryImg";
 import Link from "next/link";
 import { IBook } from "@/interfaces";
 import { convertToSlug } from "@/utils/converToSlug";
+import CardRankingBook from "../Card/CardRankingBook";
 
 export interface IListRankingStoryProps {
   title: string;
@@ -27,23 +28,7 @@ export default function ListRankingStory(props: IListRankingStoryProps) {
       </li>
       <CardRankingStoryImg book={books[0]} />
       {newList.map((book, index) => (
-        <li
-          key={index}
-          className="px-3 py-2 text-xs flex justify-between items-center border-t-[1px] border-gray-400"
-        >
-          <span className="flex items-center gap-3">
-            <span className="bg-[#f1f5f9] w-7 flex justify-center items-center h-7 rounded-full">
-              {index + 2}
-            </span>
-            <Link href={`/truyen/${convertToSlug(book.name)}-${book._id}.html`}>
-              <h4 className="max-w-[250px] overflow-hidden truncate">
-                {" "}
-                {book.name}
-              </h4>
-            </Link>
-          </span>
-          <span className="font-medium text-lg">-</span>
-        </li>
+        <CardRankingBook key={index} book={book} index={index} />
       ))}
     </ul>
   );

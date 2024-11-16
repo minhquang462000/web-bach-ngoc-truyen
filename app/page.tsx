@@ -16,16 +16,14 @@ import { getListBooksNoTotal } from "@/api/books";
 import { IBook, IFilter } from "@/interfaces";
 export default async function Home() {
   const listBookHotWeek: IBook[] = await getListBooksNoTotal({
-    page: 1,
-    limit: 10,
+    sortKey: "weekly",
+    limit: 12,
   } as IFilter);
   const listBookHot: IBook[] = await getListBooksNoTotal({
-    page: 1,
-    limit: 10,
+    sortKey: "views",
   } as IFilter);
   const listBookHotMonth: IBook[] = await getListBooksNoTotal({
-    page: 1,
-    limit: 10,
+    sortKey: "monthly",
   } as IFilter);
   const listBookSlide = await getListBooksNoTotal({
     page: 1,
@@ -65,7 +63,7 @@ export default async function Home() {
             </nav>
           </div>
         </section>
-        <ListContributor />
+        <ListContributor bookData={listBookHot} />
         <div className="flex flex-col-reverse lg:grid grid-cols-4  lg:gap-3  gap-5 ">
           <div className="flex flex-col gap-2 ">
             <ListNewestStory />
@@ -74,7 +72,7 @@ export default async function Home() {
           <div className="lg:hidden ">
             <ListShortcut />
           </div>
-          <ListStoryShortcut />
+          <ListStoryShortcut books={listBookHotWeek} />
         </div>
         <section className="grid gap-3   lg:grid-cols-3">
           <ListRankingStory
@@ -88,7 +86,7 @@ export default async function Home() {
             urlString="/truyen-hot?page=1"
           />
           <ListRankingStory
-            books={listBookHotWeek}
+            books={listBookHotWeek?.slice(0, 10)}
             title="Thịnh Hành Tuần"
             urlString="/thinh-hanh-tuan?page=1"
           />

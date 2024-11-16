@@ -12,6 +12,7 @@ export default async function ListCompleteStory(
   const listBookNew: IBook[] = await getListBooksNoTotal({
     page: 1,
     limit: 9,
+    status: 2,
   } as IFilter);
   return (
     <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 bg-white gap-3 p-2 lg:p-5 rounded-md border border-gray-400">
