@@ -16,14 +16,15 @@ export default function RootPagination(props: IRootPaginationProps) {
   const { limit, total, handleQuery, pageFilter = "page" } = props;
   const page = Number(props.page) || 1;
   const PageRef = useRef<HTMLDivElement>(null);
-  const scrollToPage = () => {
-    if (PageRef.current && props.page) {
-      PageRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
-    }
-  };
+
   useEffect(() => {
+    const scrollToPage = () => {
+      if (PageRef.current && props.page) {
+        PageRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+      }
+    };
     scrollToPage();
-  }, [page]);
+  }, [props.page]);
   const router = useRouter();
   const pathName = usePathname();
   const handleChangePage = (page: number) => {

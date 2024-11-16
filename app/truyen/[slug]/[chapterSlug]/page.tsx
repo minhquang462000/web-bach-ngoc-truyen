@@ -53,7 +53,7 @@ export default function page(props: IpageProps) {
                         Cảm ơn: <span className='text-[#126c7e]'> Nhiều thứ,</span>
                     </span>
                     <div className='text-white md:w-2/3 m-auto'>
-                        <ListCommentDetailItem />
+                        <ListCommentDetailItem page={1}/>
                     </div>
                 </div>
 

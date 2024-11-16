@@ -30,7 +30,7 @@ export default function ButtonChangeChapter(props: IButtonChangeChapterProps) {
           !showListChapter ? "hidden" : "block"
         }`}
       >
-        <ListChapter />
+        <ListChapter page={1}/>
       </div>
     </div>
   );
