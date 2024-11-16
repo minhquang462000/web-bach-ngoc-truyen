@@ -2,23 +2,35 @@
 import { convertNumber } from "@/utils";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import { BiSolidLeftArrow, BiSolidRightArrow } from "react-icons/bi";
 export interface IRootPaginationProps {
   page: any;
   limit: number;
   total: number;
   handleQuery?: (queryType: string, value: any) => void;
+  pageFilter?: string;
 }
 
 export default function RootPagination(props: IRootPaginationProps) {
-  const { page, limit, total, handleQuery } = props;
+  const { limit, total, handleQuery, pageFilter = "page" } = props;
+  const page = Number(props.page) || 1;
+  const PageRef = useRef<HTMLDivElement>(null);
+  const scrollToPage = () => {
+    if (PageRef.current && props.page) {
+      PageRef.current.scrollIntoView({ behavior: "smooth", block: "end" });
+    }
+  };
+  useEffect(() => {
+    scrollToPage();
+  }, [page]);
   const router = useRouter();
   const pathName = usePathname();
   const handleChangePage = (page: number) => {
     if (handleQuery) {
-      handleQuery("page", page);
+      handleQuery(pageFilter, page);
     } else {
-      router.push(`${pathName}?page=${page}`);
+      router.push(`${pathName}?${pageFilter}=${page}`);
     }
   };
   const totalPage = Math.ceil(total / Number(limit));
@@ -119,7 +131,8 @@ export default function RootPagination(props: IRootPaginationProps) {
   };
   return (
     <div
-      className={`w-max max-w-full m-auto my-6 p-[1px]  ${
+      ref={PageRef}
+      className={`w-max max-w-full m-auto py-6 p-[1px]  ${
         !totalPage && "hidden"
       }`}
       aria-label="Page navigation example"

@@ -3,10 +3,13 @@ import { FaGift } from "react-icons/fa";
 import { GoClockFill } from "react-icons/go";
 import ButtonChangePage from "../OptionComponent/ButtonChangePage";
 import Link from "next/link";
+import RootPagination from "../OptionComponent/RootPagination";
 
-export interface IListChapterProps {}
+export interface IListChapterProps {
+  page:number
+}
 
-export default function ListChapter(props: IListChapterProps) {
+export default function ListChapter({page}: IListChapterProps) {
   return (
     <div className=" w-full bg-[#f8f9fa7e] flex flex-col pt-4 pb-2 gap-1  text-sm">
       <div className="flex  font-medium  justify-between px-4 items-center">
@@ -51,7 +54,7 @@ export default function ListChapter(props: IListChapterProps) {
             <p className="w-[80px] ">1 năm</p>
           </li>
         </ul>
-        <ButtonChangePage />
+        <RootPagination pageFilter="chapPage" page={page} limit={10} total={100} />
       </div>
     </div>
   );

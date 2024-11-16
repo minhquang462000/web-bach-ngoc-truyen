@@ -1,16 +1,13 @@
-import * as React from "react";
 import CardComment from "../Card/CardComment";
-import ButtonChangePage from "../OptionComponent/ButtonChangePage";
 import defaultAvt from "@/public/images/default-avatar.jpg";
 import Image from "next/image";
+import RootPagination from "../OptionComponent/RootPagination";
 export interface IListCommentDetailItemProps {}
 
-export default function ListCommentDetailItem(
-  props: IListCommentDetailItemProps
-) {
+export default function ListCommentDetailItem({ page }: { page: number}) {
   return (
     <div className="flex flex-col   gap-5">
-      <h2 className="text-2xl font-medium ">Bình luận (96)</h2>
+      <h4  className="text-2xl font-medium ">Bình luận (96)</h4>
       <div className="flex gap-3  items-center text-sm ">
         <Image className="w-10 h-10 rounded-full" src={defaultAvt} alt="" />
         <div className="flex  w-full border-b gap-2 items-end justify-between">
@@ -35,7 +32,15 @@ export default function ListCommentDetailItem(
         </div>
       </div>
       <CardComment />
-      <ButtonChangePage />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <CardComment />
+      <RootPagination pageFilter="commentPage" limit={5} page={page} total={100} />
     </div>
   );
 }
