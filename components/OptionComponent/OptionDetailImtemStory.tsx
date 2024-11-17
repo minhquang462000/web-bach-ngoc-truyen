@@ -1,6 +1,7 @@
 import bnsImg from "@/public/images/np-icon.06a11732.png";
+import { convertToSlug } from "@/utils/converToSlug";
 import Image from "next/image";
-import * as React from "react";
+import Link from "next/link";
 import {
   FaBook,
   FaBookReader,
@@ -9,18 +10,22 @@ import {
   FaStar,
 } from "react-icons/fa";
 
-export interface IOptionDetailItemStoryProps {}
+export interface IOptionDetailItemStoryProps {
+  bookName: string;
+}
 
-export default function OptionDetailItemStory(
-  props: IOptionDetailItemStoryProps
-) {
+export default function OptionDetailItemStory({
+  bookName,
+}: IOptionDetailItemStoryProps) {
   return (
     <div className="flex flex-col md:items-start  gap-2">
       <ul className="flex gap-1 items-center justify-center  font-medium text-white">
-        <li className="w-[140px] md:w-max  justify-center flex items-center gap-1 bg-[#128c7e] rounded-full cursor-pointer px-3 p-[5px]">
-          <FaBookReader />
-          Đọc từ đầu
-        </li>
+        <Link href={`/truyen/${convertToSlug(bookName)}/chap-1.html`}>
+          <li className="w-[140px] md:w-max  justify-center flex items-center gap-1 bg-[#128c7e] rounded-full cursor-pointer px-3 p-[5px]">
+            <FaBookReader />
+            Đọc từ đầu
+          </li>
+        </Link>
         <li className="w-[140px] md:w-max  justify-center flex items-center gap-1 bg-[#128c7e] rounded-full cursor-pointer px-3 p-[5px]">
           <FaBook />
           Lưu truyện
