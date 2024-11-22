@@ -35,7 +35,7 @@ export default function FormRegister(props: IFormRegisterProps) {
       toast.warning("Vui lòng điền đầy đủ thông tin");
     } else if (dataRegister.password != dataRegister.confirmPw) {
       toast.error("Mật khẩu nhập lại không đồng nhất");
-    } else if (isValidEmail(dataRegister.email) == false) {
+    } else if (!isValidEmail(dataRegister.email)) {
       toast.error("Email của bạn không đúng định dạng");
     } else {
       try {
