@@ -51,7 +51,7 @@ export default function CardListBookNew({ book, chapter, detail }: IAppProps) {
           </Link>
         </span>
         {chapter ? (
-          <Link href={"/truyen/ten-truyen/chuong-460"}>
+          <Link href={`/truyen/${convertToSlug(book?.name)}/chuong-460.html`}>
             <p className="font-semibold text-[#999999] hover:text-[#007bff] overflow-hidden w-full truncate">
               Chương 460: Kim Thần Của Thiên Địa Thần Công
             </p>

@@ -4,14 +4,15 @@ import ListEvaluateStory from "../List/ListEvaluateStory";
 import ListChapter from "../List/ListChapter";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { IBook } from "@/interfaces";
 
 export interface IOptionInfoDetailProps {
-  description: string;
+  bookData: IBook;
   page: number;
   scrollToComment: () => void;
 }
 export default function OptionInfoDetail({
-  description,
+  bookData,
   page,
   scrollToComment,
 }: IOptionInfoDetailProps) {
@@ -23,14 +24,14 @@ export default function OptionInfoDetail({
         return (
           <div className="p-4 w-full overflow-y-auto h-[290px]">
             <p className=" whitespace-pre-line text-sm ">
-              {description.split(". ").join(".\n\n")}
+              {bookData?.description?.split(". ").join(".\n\n")}
             </p>
           </div>
         );
       case 1:
         return <ListEvaluateStory />;
       case 2:
-        return <ListChapter page={page} />;
+        return <ListChapter bookName={bookData?.name} page={page} />;
       default:
         return null;
     }

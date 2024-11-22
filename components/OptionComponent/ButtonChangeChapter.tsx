@@ -4,9 +4,11 @@ import { FaThList } from "react-icons/fa";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import ListChapter from "../List/ListChapter";
 
-export interface IButtonChangeChapterProps {}
+export interface IButtonChangeChapterProps {
+  nameBook: string
+}
 
-export default function ButtonChangeChapter(props: IButtonChangeChapterProps) {
+export default function ButtonChangeChapter({nameBook}: IButtonChangeChapterProps) {
   const [showListChapter, setShowListChapter] = useState(false);
   return (
     <div>
@@ -30,7 +32,7 @@ export default function ButtonChangeChapter(props: IButtonChangeChapterProps) {
           !showListChapter ? "hidden" : "block"
         }`}
       >
-        <ListChapter page={1} />
+        <ListChapter bookName="" page={1} />
       </div>
     </div>
   );

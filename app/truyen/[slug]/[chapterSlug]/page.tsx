@@ -8,6 +8,7 @@ import bnsImg from "@/public/images/np-icon.06a11732.png";
 import ButtonChangeChapter from "@/components/OptionComponent/ButtonChangeChapter";
 import ListCommentDetailItem from "@/components/List/ListCommentDetailItem";
 import { PropParams } from "@/interfaces";
+import Link from "next/link";
 
 export interface IpageProps {}
 
@@ -18,15 +19,17 @@ export default async function page({ params, searchParams }: PropParams) {
       <main className=" bg-[#252c33]  text-white py-10 pb-20  w-full">
         <div className="flex-col flex gap-4 p-2 lg:max-w-[1140px] m-auto">
           <div className="flex gap-1 border font-medium border-gray-500 p-2 rounded-md text-xs">
-            <p className="hover:text-[#1268c7] cursor-pointer">
-              Vương Gia Marxism
-            </p>
+            <Link href="">
+              <p className="hover:text-[#1268c7]">
+                Vương Gia Marxism
+              </p>
+            </Link>
             <p>/ Chương 01:Tắm nắng ngày hè</p>
           </div>
           <h3 className="flex items-center text-xl gap-1">
             <IoIosSettings /> Cài đặt giao diện
           </h3>
-          <ButtonChangeChapter />
+          <ButtonChangeChapter nameBook="Vương Gia Marxism" />
           <div className=" md:w-4/5 m-auto w-full text-lg  flex flex-col gap-2">
             <h4 className=" font-medium"> Chương 01: Tắm nắng ngày hè</h4>
             <ul className="flex flex-wrap gap-1">
@@ -71,7 +74,7 @@ export default async function page({ params, searchParams }: PropParams) {
             <p>Hoàng Hi Bình,19-5-2024,21:19:10</p>
             <p>Lượt xem:4620</p>
           </span>
-          <ButtonChangeChapter />
+          <ButtonChangeChapter nameBook="Vương Gia Marxism" />
           <span className="text-xs text-wrap w-full font-medium">
             Cảm ơn: <span className="text-[#126c7e]"> Nhiều thứ,</span>
           </span>

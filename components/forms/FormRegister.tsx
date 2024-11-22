@@ -3,11 +3,12 @@ import Image from "next/image";
 import logoMain from "@/public/images/logo.49128792.png";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import Link from "next/link";
-import { useState } from "react";
+import { isValidElement, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useGetEmailForLogin } from "@/stores/getEmailLocal";
+import { isValidEmail } from "@/utils";
 
 export interface IFormRegisterProps {}
 
@@ -34,6 +35,8 @@ export default function FormRegister(props: IFormRegisterProps) {
       toast.warning("Vui lòng điền đầy đủ thông tin");
     } else if (dataRegister.password != dataRegister.confirmPw) {
       toast.error("Mật khẩu nhập lại không đồng nhất");
+    } else if (isValidEmail(dataRegister.email) == false) {
+      toast.error("Email của bạn không đúng định dạng");
     } else {
       try {
         await axios.post(

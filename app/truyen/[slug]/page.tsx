@@ -48,7 +48,7 @@ export default async function page({ params, searchParams }: PropParams) {
           <FormOptionDetailBook
             chapterPage={chapterPage}
             commentPage={commentPage}
-            des={bookData?.description}
+            bookData={bookData}
           />
           <div className="flex flex-col gap-4 ">
             <ListStorySameAuthor

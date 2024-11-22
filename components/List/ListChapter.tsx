@@ -1,15 +1,24 @@
-import * as React from "react";
+"use client";
 import { FaGift } from "react-icons/fa";
 import { GoClockFill } from "react-icons/go";
 import ButtonChangePage from "../OptionComponent/ButtonChangePage";
 import Link from "next/link";
 import RootPagination from "../OptionComponent/RootPagination";
+import { useRouter } from "next/navigation";
+import { convertToSlug } from "@/utils/converToSlug";
 
 export interface IListChapterProps {
-  page:number
+  page: number;
+  bookName: string;
 }
 
-export default function ListChapter({page}: IListChapterProps) {
+export default function ListChapter({ page, bookName }: IListChapterProps) {
+  const router = useRouter();
+  const handleChapter = () => {
+    if (bookName) {
+      router.push(`/truyen/${convertToSlug(bookName)}/chapter.html`);
+    }
+  };
   return (
     <div className=" w-full bg-[#f8f9fa7e] flex flex-col pt-4 pb-2 gap-1  text-sm">
       <div className="flex  font-medium  justify-between px-4 items-center">
@@ -41,20 +50,20 @@ export default function ListChapter({page}: IListChapterProps) {
         <ul className="flex flex-col max-h-[1000px] overflow-y-auto w-full ">
           <li className="flex border-t-[1px] py-3  cursor-pointer hover:bg-gray-100 w-full text-center items-center">
             <span className="w-[60px] m-auto ">1</span>
-            <div className="w-full px-2  overflow-hidden  text-start truncate ">
-              <Link href={"/truyen/ten-truyen/chuong-1"}>
-                {" "}
-                <p>
-                  Chương 1: Giấc Mộng? Thực Tế? abc sadh sadjh sajdh sadjk
-                  sadkjh{" "}
-                </p>
+            <p className="w-full px-2 hover:underline  overflow-hidden  text-start truncate ">
+              <Link href={`/truyen/${convertToSlug(bookName)}/chapter.html`}>
+                Chương 1: Giấc Mộng? Thực Tế? abc sadh sadjh sajdh sadjk sadkjh{" "}
               </Link>
-            </div>
-
-            <p className="w-[80px] ">1 năm</p>
+            </p>
+            <span className="w-[80px] ">1 năm</span>
           </li>
         </ul>
-        <RootPagination pageFilter="chapPage" page={page} limit={10} total={100} />
+        <RootPagination
+          pageFilter="chapPage"
+          page={page}
+          limit={10}
+          total={100}
+        />
       </div>
     </div>
   );
