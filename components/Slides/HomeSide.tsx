@@ -44,8 +44,8 @@ export default function HomeSlide({ bookRender }: IHomeSlideProps) {
                 {" "}
                 <Image
                   onClick={() => handleUpdateView(item._id)}
-                  width={200}
-                  height={100}
+                  width={600}
+                  height={400}
                   className="w-full  aspect-[3/4] object-cover object-center"
                   src={
                     item.images[1]

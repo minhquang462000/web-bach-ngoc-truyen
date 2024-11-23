@@ -28,7 +28,6 @@ export default async function Home() {
   const listBookSlide = await getListBooksNoTotal({
     page: 1,
     limit: 4,
-    status: 2,
   } as IFilter);
   return (
     <MainLayout>
