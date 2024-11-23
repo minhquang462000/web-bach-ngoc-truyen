@@ -46,7 +46,7 @@ export default function HomeSlide({ bookRender }: IHomeSlideProps) {
                   onClick={() => handleUpdateView(item._id)}
                   width={600}
                   height={400}
-                  className="w-full  aspect-[3/4] object-cover object-center"
+                  className="w-full object-top  aspect-[3/4] object-cover "
                   src={
                     item.images[1]
                       ? `${DOMAIN}/api/books/${item?.images[1]}`
